@@ -3,11 +3,14 @@ import './App.css';
 import { Route } from 'react-router-dom';
 import CardContainer from '../CardContainer/CardContainer';
 import { getMovies } from '../../apiCalls/apiCalls';
+import { addMovies } from '../../actions';
+import { connect } from 'react-redux';
 
 class App extends Component {
 
-  componentDidMount() {
-    getMovies();
+  async componentDidMount() {
+    const movies = await getMovies();
+    this.props.addMovies(movies);
   }
   render() {
     return (
@@ -21,4 +24,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => ({
+  addMovies: (movies) => dispatch(addMovies(movies))
+});
+
+export default connect(null, mapDispatchToProps)(App);
