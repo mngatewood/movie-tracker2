@@ -8,7 +8,8 @@ describe('getMovies', () => {
     const mockMovieArray = [ 
       { title: 'Black Panther',
       poster_path : "/v5HlmJK9bdeHxN2QhaFP1ivjX3U.jpg" }
-      ]
+    ]
+    
     window.fetch = jest.fn().mockImplementation(() => {
       Promise.resolve({
         ok: true,
