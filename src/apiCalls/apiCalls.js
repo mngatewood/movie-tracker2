@@ -26,7 +26,7 @@ const movieCleaner = (moviesArray) => {
 };
 
 export const getUser = async (email, password) => {
-  const url = '/api/users';
+  const url = 'api/users';
   const user = { email: email, password: password };
   try {
     console.log(user, url)
