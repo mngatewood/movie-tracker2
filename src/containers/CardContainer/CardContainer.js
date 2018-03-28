@@ -1,12 +1,27 @@
 import React from 'react';
 import './CardContainer.css';
+import { connect } from 'react-redux';
+import Card from '../Card/Card';
 
-const CardContainer = () => {
+const CardContainer = ({movies}) => {
+  let displayCards;
 
-  
+  if (movies) {
+    displayCards = movies.map((movie) => {
+      return <Card
+        key={movie.key}
+        movie={movie} />;
+    });
+  }
   return (
-    <div>Hello</div>
+    <div>
+      {displayCards}
+    </div>
   );
 };
 
-export default CardContainer;
+const mapStateToProps = state => ({
+  movies: state.movies
+});
+
+export default connect(mapStateToProps)(CardContainer);
