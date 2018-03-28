@@ -2,20 +2,26 @@ import * as apiCalls from './apiCalls';
 
 describe('getMovies', () => {
   let mockUrl;
+  let mockMovieData
 
-  beforeAll( () => {
+  beforeEach( () => {
 
-    const mockMovieArray = [ 
-      { title: 'Black Panther',
-      poster_path : "/v5HlmJK9bdeHxN2QhaFP1ivjX3U.jpg" }
-    ]
-    
-    window.fetch = jest.fn().mockImplementation(() => {
+    mockMovieData = {
+      results: [ 
+        { title: 'Tomb Raider',
+          overview: 'mockOverview',
+          poster_path: 'mockPosterPath',
+          vote_average: '5'
+        }
+      ]
+    }
+
+    window.fetch = jest.fn().mockImplementation(() => (
       Promise.resolve({
         ok: true,
-        json: () => Promise.resolve(mockMovieArray)
+        json: () => Promise.resolve(mockMovieData)
       })
-    })
+    ))
 
     mockUrl = 'http://www.movies.com'
 
@@ -27,11 +33,14 @@ describe('getMovies', () => {
   })
 
   it('returns a movie object when status is ok', async () => {
-    const expected = { 
-      title: 'Black Panther',
-      poster_path : "/v5HlmJK9bdeHxN2QhaFP1ivjX3U.jpg"
-    }
-    expect(apiCalls.getMovies(mockUrl)).resolves.toBe(expected)
+    const expected = [{ 
+      key: 'Tomb Raider0',
+      title: 'Tomb Raider',
+      overview: 'mockOverview',
+      poster : "mockPosterPath",
+      rating: '5'
+    }]
+    await expect(apiCalls.getMovies(mockUrl)).resolves.toEqual(expected)
   })
 
   it('throws an error when status is not ok', () => {
