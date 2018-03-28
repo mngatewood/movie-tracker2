@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route } from 'react-router-dom';
+import { Route, NavLink, withRouter } from 'react-router-dom';
 import CardContainer from '../CardContainer/CardContainer';
 import { getMovies, url } from '../../apiCalls/apiCalls';
 import { addMovies } from '../../actions';
 import { connect } from 'react-redux';
+import Header from '../Header/Header';
+import Login from '../Login/Login';
+import Signup from '../Signup/Signup';
 
 class App extends Component {
 
@@ -15,7 +18,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route to='/' render = { () => <CardContainer /> } />
+        <Header />
+        <Route exact path='/' render={() => <CardContainer />} />
+        <Route path='/login' render={() => <Login />} />
+        <Route path='/signup' render={() => <Signup />} />
       </div>
     );
   }
@@ -25,4 +31,4 @@ const mapDispatchToProps = dispatch => ({
   addMovies: (movies) => dispatch(addMovies(movies))
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default withRouter(connect(null, mapDispatchToProps)(App));
