@@ -4,7 +4,7 @@ describe('getMovies', () => {
   let mockUrl;
   let mockMovieData
 
-  beforeEach( () => {
+  beforeAll( () => {
 
     mockMovieData = {
       results: [ 
@@ -44,6 +44,20 @@ describe('getMovies', () => {
   })
 
   it('throws an error when status is not ok', () => {
+    // window.fetch = jest.fn().mockImplementation(() => (
+    //   Promise.reject({
+    //     ok: false
+    //   })
+    // )) 
 
+    const getMoviesError = () => {
+      try {
+        apiCalls.getMovies(mockUrl)
+      } catch (error) {
+        return ('Error getting movies')
+      }
+    }
+
+    expect(getMoviesError).toThrow('Error getting movies')
   })
 })
