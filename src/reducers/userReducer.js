@@ -3,7 +3,7 @@ const initialValue = {};
 const userReducer = (state = initialValue, action) => {
   switch (action.type) {
   case 'VALIDATE_USER':
-    return {...state, ...action.user};
+    return action.user;
   default:
     return state;
   }

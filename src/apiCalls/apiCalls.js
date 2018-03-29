@@ -25,14 +25,13 @@ const movieCleaner = (moviesArray) => {
   });
 };
 
-export const userLogin = async (email, password) => {
+export const userLogin = async (credentials) => {
   const url = 'api/users';
-  // console.log({ credentials });
-  const user = { email: email, password: password };
+  // const user = { email: email, password: password };
   try {
     const response = await fetch(url, {
       method: 'POST',
-      body: JSON.stringify(user),
+      body: JSON.stringify(credentials),
       headers: { 'Content-Type': 'application/json' }
     });
     const data = await response.json();
