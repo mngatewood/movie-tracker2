@@ -43,21 +43,15 @@ describe('getMovies', () => {
     await expect(apiCalls.getMovies(mockUrl)).resolves.toEqual(expected)
   })
 
-  it('throws an error when status is not ok', () => {
-    // window.fetch = jest.fn().mockImplementation(() => (
-    //   Promise.reject({
-    //     ok: false
-    //   })
-    // )) 
+  it.skip('throws an error when status is not ok', () => {
+    window.fetch = jest.fn().mockImplementation(() => (
+      Promise.reject({
+        ok: false
+      })
+    )) 
 
-    const getMoviesError = () => {
-      try {
-        apiCalls.getMovies(mockUrl)
-      } catch (error) {
-        return ('Error getting movies')
-      }
-    }
-
+    apiCalls.getMovies(mockUrl)
+ 
     expect(getMoviesError).toThrow('Error getting movies')
   })
 })
