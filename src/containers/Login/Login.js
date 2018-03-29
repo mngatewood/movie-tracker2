@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { userLogin } from '../../apiCalls/apiCalls';
 import { validateUser } from '../../actions';
 import './Login.css';
+import { connect } from 'react-redux';
 
 export class Login extends Component {
   constructor() {
@@ -16,20 +16,19 @@ export class Login extends Component {
 
   handleChange = (event) => {
     const { name, value } = event.target; 
-    this.setState({ [name]: value })
+    this.setState({ [name]: value });
   }
 
-  handleSubmit = async (event) => {
+  handleSubmit = async event => {
     event.preventDefault();
-    const user = await userLogin('tman2272@aol.com', 'password');
+    const user = await userLogin(this.state);
     this.props.validateUser(user);
-    // const user = await userLogin(this.state);
-    // console.log(user);
-    // console.log(this.props)
-    // if (user) {
-    //   this.props.validateUser(user);
-    // }
+    this.setState({
+      email: '',
+      password: ''
+    });
   }
+  
   render() {
     return (
       <div>
@@ -38,11 +37,13 @@ export class Login extends Component {
           <input 
             type="text" 
             name="email" 
+            value={this.state.email}
             placeholder="Enter your email address." 
             onChange={this.handleChange} />
           <input 
             type="text"
             name="password"
+            value={this.state.password}
             placeholder="Enter your password"
             onChange={this.handleChange} />
           <button
@@ -55,7 +56,7 @@ export class Login extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  validateUser: (user) => dispatch(validateUser(user))
+  validateUser: user => dispatch(validateUser(user))
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(Login));
+export default connect(null, mapDispatchToProps)(Login);
