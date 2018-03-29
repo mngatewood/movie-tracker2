@@ -9,8 +9,7 @@ export const getMovies = async (url) => {
     const cleanMovies = movieCleaner(movies.results);
     return cleanMovies;
   } catch (error) {
-    throw error
-    // throw new error('Error getting movies');
+    throw new Error('Error getting movies');
   }
 };
 
