@@ -3,7 +3,6 @@ import React from 'react';
 
 const Card = ({movie}) => {
   const { title, overview, poster, rating } = movie
-  console.log(poster)
   return (
     <div>
       <h3>{title}</h3>
