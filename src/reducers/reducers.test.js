@@ -28,5 +28,10 @@ describe('reducers', () => {
 
       expect(userReducer(undefined,actions.validateUser(user))).toEqual(expected)
     })
+
+    it('should return an empty object when given LOG_OUT action', () => {
+      const expected = {};
+      expect(userReducer(undefined, actions.logOut())).toEqual(expected);
+    })
   })
 })
