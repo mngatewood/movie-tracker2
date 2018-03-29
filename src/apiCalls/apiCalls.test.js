@@ -1,5 +1,9 @@
-import * as apiCalls from './apiCalls';
+import * as helper from './apiCalls';
 
+describe ('helper functions', () => {
+
+
+})
 describe('getMovies', () => {
   let mockUrl;
   let mockMovieData
@@ -28,7 +32,7 @@ describe('getMovies', () => {
   })
 
   it('calls fetch with expected params', () => {
-    apiCalls.getMovies(mockUrl);
+    helper.getMovies(mockUrl);
     expect(window.fetch).toHaveBeenCalledWith(mockUrl)
   })
 
@@ -40,7 +44,7 @@ describe('getMovies', () => {
       poster : "mockPosterPath",
       rating: '5'
     }]
-    await expect(apiCalls.getMovies(mockUrl)).resolves.toEqual(expected)
+    await expect(helper.getMovies(mockUrl)).resolves.toEqual(expected)
   })
 
   it('throws an error when status is not ok', () => {
@@ -51,6 +55,6 @@ describe('getMovies', () => {
     )) 
     const expected = Error('Error getting movies')
     
-    expect(apiCalls.getMovies(mockUrl)).rejects.toEqual(expected)
+    expect(helper.getMovies(mockUrl)).rejects.toEqual(expected)
   })
 })
