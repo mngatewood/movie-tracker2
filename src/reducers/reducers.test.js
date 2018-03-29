@@ -1,5 +1,6 @@
 import movieReducer from './movieReducer';
-import * as actions from '../actions/index.js'
+import userReducer from './userReducer';
+import * as actions from '../actions/index.js';
 
 describe('reducers', () => {
   describe('movieReducer', () => {
@@ -13,5 +14,19 @@ describe('reducers', () => {
       const expected = [ { title: 'Black Panther'} ];
       expect(movieReducer(undefined, actions.addMovies(movies))).toEqual(expected)
     })   
+  })
+
+  describe('userReducer', () => {
+    it('should return the default state', () => {
+      const expected = {};
+      expect(userReducer(undefined, {})).toEqual(expected);
+    })
+
+    it('should return a the user when given VALIDATE_USER action', () => {
+      const user = {username: 'Will', password: 'iLoveTesting'};
+      const expected = user;
+
+      expect(userReducer(undefined,actions.validateUser(user))).toEqual(expected)
+    })
   })
 })
