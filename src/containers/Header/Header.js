@@ -33,4 +33,4 @@ const mapDispatchToProps = dispatch => ({
   logOut: () => dispatch(logOut())
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));  
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
