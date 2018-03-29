@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { userLogin } from '../../apiCalls/apiCalls';
+import { validateUser } from '../../actions';
 import './Login.css';
 
-export default class Login extends Component {
+export class Login extends Component {
   constructor() {
     super();
     this.state = {
@@ -11,10 +15,21 @@ export default class Login extends Component {
   }
 
   handleChange = (event) => {
-    const { name, value } = event.target;
+    const { name, value } = event.target; 
     this.setState({ [name]: value })
   }
 
+  handleSubmit = async (event) => {
+    event.preventDefault();
+    const user = await userLogin('tman2272@aol.com', 'password');
+    this.props.validateUser(user);
+    // const user = await userLogin(this.state);
+    // console.log(user);
+    // console.log(this.props)
+    // if (user) {
+    //   this.props.validateUser(user);
+    // }
+  }
   render() {
     return (
       <div>
@@ -39,4 +54,8 @@ export default class Login extends Component {
   }
 }
 
+const mapDispatchToProps = dispatch => ({
+  validateUser: (user) => dispatch(validateUser(user))
+});
 
+export default withRouter(connect(null, mapDispatchToProps)(Login));
