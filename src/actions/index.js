@@ -7,3 +7,7 @@ export const validateUser = (user) => ({
   type: 'VALIDATE_USER',
   user
 });
+
+export const logOut = () => ({
+  type: 'LOG_OUT'
+}); 
