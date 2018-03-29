@@ -1,22 +1,39 @@
 import * as actions from './index';
 
-describe('addMovies', () => {
-  it('creates a type of ADD_MOVIES', () => {
+describe('actions', () => {
 
-    const movies = [
-      { title: 'Black Panther',
-        poster: "/v5HlmJK9bdeHxN2QhaFP1ivjX3U.jpg" 
-      },
-      { title: 'Tomb Raider', 
-        poster: '/ePyN2nX9t8SOl70eRW47Q29zUFO.jpg'
-      }  
-    ]
+  describe('addMovies', () => {
+    it('creates a type of ADD_MOVIES', () => {
 
-    const expected = {
-      type: 'ADD_MOVIES',
-      movies
-    }
+      const movies = [
+        { title: 'Black Panther',
+          poster: "/v5HlmJK9bdeHxN2QhaFP1ivjX3U.jpg" 
+        },
+        { title: 'Tomb Raider', 
+          poster: '/ePyN2nX9t8SOl70eRW47Q29zUFO.jpg'
+        }  
+      ]
 
-    expect(actions.addMovies(movies)).toEqual(expected);
+      const expected = {
+        type: 'ADD_MOVIES',
+        movies
+      }
+
+      expect(actions.addMovies(movies)).toEqual(expected);
+    })
+  })
+  
+  describe('validateUser', () => {
+    it('should create a type of VALIDATE_USER', () => {
+
+      const user = { username: 'Will', password: 'iHeartTesting' }
+
+      const expected = {
+        type: 'VALIDATE_USER',
+        user
+      }
+
+      expect(actions.validateUser(user)).toEqual(expected)
+    })
   })
 })

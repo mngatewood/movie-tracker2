@@ -12,6 +12,6 @@ describe('reducers', () => {
       const movies = [ { title: 'Black Panther'} ];
       const expected = [ { title: 'Black Panther'} ];
       expect(movieReducer(undefined, actions.addMovies(movies))).toEqual(expected)
-    })
+    })   
   })
 })
