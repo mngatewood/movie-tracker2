@@ -36,4 +36,11 @@ describe('actions', () => {
       expect(actions.validateUser(user)).toEqual(expected)
     })
   })
+
+  describe('logOut', () => {
+    it('should create a type of LOG_OUT', () => {
+      const expected = {type: 'LOG_OUT'}
+      expect(actions.logOut()).toEqual(expected)
+    })
+  })
 })
