@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import './Signup.css';
-import { userSignup } from '../../apiCalls/apiCalls';
+import { userSignup, userLogin } from '../../apiCalls/apiCalls';
+import { validateUser } from '../../actions';
+import { connect } from 'react-redux';
+import { withRouter } from "react-router-dom";
 
-export default class Signup extends Component {
+export class Signup extends Component {
   constructor() {
     super();
 
@@ -13,9 +16,10 @@ export default class Signup extends Component {
     };
   }
 
-  handleSubmit = async event => {
+  handleSubmit = event => {
     event.preventDefault();
     userSignup(this.state);
+    this.props.history.push("/login");
   }
 
   handleChange = event => {
@@ -53,4 +57,10 @@ export default class Signup extends Component {
     </div>;
   }
 }
+
+const mapDispatchToProps = dispatch => ({
+  validateUser: user => dispatch(validateUser(user))
+});
+
+export default withRouter(connect(null, mapDispatchToProps)(Signup));
 
