@@ -71,7 +71,12 @@ const mapDispatchToProps = dispatch => ({
 });
 
 Card.propTypes = {
-  movie: PropTypes.objectOf(PropTypes.string),
+  movie: PropTypes.shape({
+    title: PropTypes.string,
+    overview: PropTypes.string,
+    poster: PropTypes.string,
+    rating: PropTypes.num
+  }),
   user: PropTypes.objectOf(PropTypes.string),
   setError: PropTypes.func,
   addFavoriteToStore: PropTypes.func,
@@ -80,4 +85,3 @@ Card.propTypes = {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);
-

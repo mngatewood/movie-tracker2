@@ -79,11 +79,11 @@ const mapDispatchToProps = dispatch => ({
   addFavorites: favorites => dispatch(addFavorites(favorites))
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(Login));
-
 Login.propTypes = {
   validateUser: PropTypes.func,
   setError: PropTypes.func,
   addFavorites: PropTypes.func,
-  history: PropTypes.object
+  history: PropTypes.objectOf
 };
+
+export default withRouter(connect(null, mapDispatchToProps)(Login));
