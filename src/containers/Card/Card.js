@@ -70,13 +70,14 @@ const mapDispatchToProps = dispatch => ({
   removeFavoriteFromStore: movie_id => dispatch(removeFavoriteFromStore(movie_id))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Card);
-
 Card.propTypes = {
-  movie: PropTypes.object,
-  user: PropTypes.object,
+  movie: PropTypes.objectOf(PropTypes.string),
+  user: PropTypes.objectOf(PropTypes.string),
   setError: PropTypes.func,
   addFavoriteToStore: PropTypes.func,
   isFavorite: PropTypes.bool,
   removeFavoriteFromStore: PropTypes.func
 };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Card);
+

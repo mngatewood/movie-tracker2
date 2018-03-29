@@ -35,8 +35,9 @@ const mapDispatchToProps = dispatch => ({
   addMovies: (movies) => dispatch(addMovies(movies))
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(App));
 
 App.propTypes = {
   addMovies: PropTypes.func
 };
+
+export default withRouter(connect(null, mapDispatchToProps)(App));

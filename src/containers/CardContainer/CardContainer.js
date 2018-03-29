@@ -37,9 +37,9 @@ const mapStateToProps = state => ({
   favorites: state.favorites
 });
 
-export default connect(mapStateToProps)(CardContainer);
-
 CardContainer.propTypes = {
   movies: PropTypes.array,
   favorites: PropTypes.array
 };
+
+export default connect(mapStateToProps)(CardContainer);

@@ -41,7 +41,6 @@ export class Login extends Component {
     }
   }
   
-  
   render() {
     const enableSubmit = this.state.email && this.state.password; 
     return (
