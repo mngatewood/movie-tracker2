@@ -12,11 +12,14 @@ const Header = (props) => {
     props.logOut();
   };
 
+  console.log(props.user)
   return (
     <div>
       <NavLink to='/'><h1>Movie Tracker</h1></NavLink>
-      <NavLink to='/login'>Login</NavLink>
-      <button onClick={handleClick}>Logout</button>
+      {props.user.name ? 
+        <button onClick={handleClick}>Logout</button> :
+        <NavLink to='/login'>Login</NavLink>
+      }
       <NavLink to='/signup'>Sign Up</NavLink>
     </div>
   );
