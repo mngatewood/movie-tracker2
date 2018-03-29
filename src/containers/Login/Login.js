@@ -21,13 +21,19 @@ export class Login extends Component {
 
   handleSubmit = async event => {
     event.preventDefault();
-    const user = await userLogin(this.state);
-    this.props.validateUser(user);
-    this.setState({
-      email: '',
-      password: ''
-    });
+    try {
+      const user = await userLogin(this.state);
+      this.props.validateUser(user);
+      this.props.history.push('/');
+    } catch (error) {
+      alert("Email and Password do not match");
+      this.setState({
+        email: '',
+        password: ''
+      });
+    }
   }
+  
   
   render() {
     return (
@@ -59,4 +65,4 @@ const mapDispatchToProps = dispatch => ({
   validateUser: user => dispatch(validateUser(user))
 });
 
-export default connect(null, mapDispatchToProps)(Login);
+export default withRouter(connect(null, mapDispatchToProps)(Login));

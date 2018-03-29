@@ -27,7 +27,6 @@ const movieCleaner = (moviesArray) => {
 
 export const userLogin = async (credentials) => {
   const url = 'api/users';
-  // const user = { email: email, password: password };
   try {
     const response = await fetch(url, {
       method: 'POST',

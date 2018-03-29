@@ -17,6 +17,7 @@ class App extends Component {
   }
 
   render() {
+    const { user } = this.props;
     return (
       <div className="App">
         <Header />
@@ -28,8 +29,12 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  user: state.user
+});
+
 const mapDispatchToProps = dispatch => ({
   addMovies: (movies) => dispatch(addMovies(movies))
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(App));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
