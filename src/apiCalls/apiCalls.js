@@ -49,7 +49,7 @@ export const userSignup = async accountInfo => {
       headers: { 'Content-Type': 'application/json' }
     });
     const userId = await response.json();
-    console.log(userId);
+    return userId;
   } catch (error) {
     throw error;
   }

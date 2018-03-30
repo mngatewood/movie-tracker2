@@ -16,10 +16,23 @@ export class Signup extends Component {
     };
   }
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault();
-    userSignup(this.state);
-    this.props.history.push("/login");
+    try {
+      const signUpFetch = await userSignup(this.state);
+      if (signUpFetch.error) {
+        throw new Error("Error")
+      } else {
+        this.props.history.push("/login");
+      }
+    } catch (error) {
+      this.setState({
+        name: "",
+        email: "",
+        password: "",
+        errorMessage: "Email has already been used"
+      });
+    }
   }
 
   handleChange = event => {
@@ -29,6 +42,7 @@ export class Signup extends Component {
 
   render() {
     return <div>
+      <h2>Sign Up!</h2>
       <form onSubmit={this.handleSubmit}>
         <input 
           type="text" 
@@ -54,6 +68,7 @@ export class Signup extends Component {
             Submit
         </button>
       </form>
+      <h2>{this.state.errorMessage}</h2>
     </div>;
   }
 }
