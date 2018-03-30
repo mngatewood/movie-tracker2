@@ -18,13 +18,14 @@ const Header = (props) => {
     {props.user.name ? 
       <div>
         <h3>Welcome {props.user.name}</h3>
-        <button onClick={handleClick}>Logout</button>
+        <NavLink to="/login" onClick={handleClick}>Logout</NavLink>
       </div> 
       : 
       <div>
         <NavLink to="/login">Login</NavLink>
         <NavLink to="/signup">Sign Up</NavLink>
       </div>}
+    <NavLink to="/favorites">Favorites</NavLink>
   </div>;
 };
 
