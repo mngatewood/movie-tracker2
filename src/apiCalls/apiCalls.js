@@ -16,7 +16,7 @@ export const getMovies = async (url) => {
   }
 };
 
-const movieCleaner = (moviesArray) => {
+export const movieCleaner = (moviesArray) => {
   return moviesArray.map((movie) => {
     return ({
       title: movie.title, 
