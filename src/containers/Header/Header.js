@@ -6,8 +6,7 @@ import { logOut } from '../../actions';
 
 const Header = (props) => {
   
-  const handleClick = (event) => {
-    event.preventDefault();
+  const handleClick = () => {
     props.logOut();
   };
 
