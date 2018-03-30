@@ -25,7 +25,7 @@ const movieCleaner = (moviesArray) => {
   });
 };
 
-export const userLogin = async (credentials) => {
+export const userLogin = async credentials => {
   const url = 'api/users';
   try {
     const response = await fetch(url, {
@@ -33,8 +33,23 @@ export const userLogin = async (credentials) => {
       body: JSON.stringify(credentials),
       headers: { 'Content-Type': 'application/json' }
     });
-    const data = await response.json();
-    return data.data;
+    const user = await response.json();
+    return user.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const userSignup = async accountInfo => {
+  const url = 'api/users/new';
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(accountInfo),
+      headers: { 'Content-Type': 'application/json' }
+    });
+    const userId = await response.json();
+    return userId;
   } catch (error) {
     throw error;
   }

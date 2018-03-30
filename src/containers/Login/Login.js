@@ -10,11 +10,12 @@ export class Login extends Component {
     super();
     this.state = {
       email: '',
-      password: ''
+      password: '',
+
     };
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     const { name, value } = event.target; 
     this.setState({ [name]: value });
   }
@@ -26,10 +27,10 @@ export class Login extends Component {
       this.props.validateUser(user);
       this.props.history.push('/');
     } catch (error) {
-      alert("Email and Password do not match");
       this.setState({
-        email: '',
-        password: ''
+        email: "",
+        password: "",
+        errorMessage: "Email and Password do not match"
       });
     }
   }
@@ -56,6 +57,7 @@ export class Login extends Component {
             type="submit" 
             name="submit">Submit</button>
         </form>
+        <h2>{this.state.errorMessage}</h2>
       </div>
     );
   }

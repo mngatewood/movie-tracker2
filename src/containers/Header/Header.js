@@ -11,18 +11,21 @@ const Header = (props) => {
     props.logOut();
   };
 
-  return (
-    <div>
-      <NavLink to='/'><h1>Movie Tracker</h1></NavLink>
-      {props.user.name ? 
-        <button onClick={handleClick}>Logout</button> :
-        <div>
-          <NavLink to='/login'>Login</NavLink>
-          <NavLink to='/signup'>Sign Up</NavLink>
-        </div>
-      }
-    </div>
-  );
+  return <div>
+    <NavLink to="/">
+      <h1>Movie Tracker</h1>
+    </NavLink>
+    {props.user.name ? 
+      <div>
+        <h3>Welcome {props.user.name}</h3>
+        <button onClick={handleClick}>Logout</button>
+      </div> 
+      : 
+      <div>
+        <NavLink to="/login">Login</NavLink>
+        <NavLink to="/signup">Sign Up</NavLink>
+      </div>}
+  </div>;
 };
 
 const mapStateToProps = state => ({
@@ -33,4 +36,4 @@ const mapDispatchToProps = dispatch => ({
   logOut: () => dispatch(logOut())
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));  
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
