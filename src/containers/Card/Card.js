@@ -3,10 +3,12 @@ import React from 'react';
 import { connect } from "react-redux";
 
 const Card = ({movie, user}) => {
-  const { title, overview, poster, rating } = movie
+  const { title, overview, poster, rating } = movie;
 
   const handleClick = () => {
-    console.log(user);
+    if (!user.id) {
+      
+    }
   };
 
   return (
@@ -16,6 +18,7 @@ const Card = ({movie, user}) => {
         alt="movie poster" />
       <p>Rating: {rating}</p>
       <button onClick={handleClick}>Favorite</button>
+      <p>{}</p>
     </div>
   );
 };

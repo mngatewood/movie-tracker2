@@ -10,4 +10,9 @@ export const validateUser = (user) => ({
 
 export const logOut = () => ({
   type: 'LOG_OUT'
-}); 
+});
+
+export const setError = (error) => ({
+  type: 'SET_ERROR',
+  error
+});
