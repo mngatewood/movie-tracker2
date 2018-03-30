@@ -1,11 +1,12 @@
 import './Card.css';
 import React from 'react';
+import { connect } from "react-redux";
 
-const Card = ({movie}) => {
+const Card = ({movie, user}) => {
   const { title, overview, poster, rating } = movie
 
   const handleClick = () => {
-    console.log('works');
+    console.log(user);
   };
 
   return (
@@ -19,4 +20,8 @@ const Card = ({movie}) => {
   );
 };
 
-export default Card;
+const mapStateToProps = state => ({
+  user: state.user
+});
+
+export default connect(mapStateToProps, null)(Card);
