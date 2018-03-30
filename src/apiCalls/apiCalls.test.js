@@ -1,9 +1,12 @@
 import * as helper from './apiCalls';
+import { movieCleaner } from './movieCleaner';
+jest.mock('./movieCleaner')
 
 describe ('helper functions', () => {
   describe('getMovies', () => {
     let mockUrl;
     let mockMovieData
+
 
     beforeAll( () => {
 
@@ -33,11 +36,9 @@ describe ('helper functions', () => {
       expect(window.fetch).toHaveBeenCalledWith(mockUrl)
     })
 
-    it('calls movieCleaner with expected params', () => {
-      // const spy = jest.spyOn(helper, 'movieCleaner')
-      helper.movieCleaner = jest.fn();
-      helper.getMovies(mockUrl);
-      expect(helper.movieCleaner).toHaveBeenCalled();
+    it('calls movieCleaner with expected params', async () => {
+      await helper.getMovies(mockUrl);
+      await expect(movieCleaner).toHaveBeenCalled();
     })
 
     it('returns a movie object when status is ok', async () => {
@@ -53,8 +54,8 @@ describe ('helper functions', () => {
 
     it('throws an error when status is not ok', () => {
       window.fetch = jest.fn().mockImplementation(() => (
-        Promise.resolve({
-          ok: false
+        Promise.reject({
+          ok: false,
         })
       )) 
       const expected = Error('Error getting movies')

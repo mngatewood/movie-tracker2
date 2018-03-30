@@ -1,4 +1,5 @@
 import apiKey from './apiKey';
+import { movieCleaner } from './movieCleaner'
 
 const urlRoot = 'https://api.themoviedb.org/3/movie/now_playing?';
 const urlKey = `api_key=${apiKey}`;
@@ -14,19 +15,6 @@ export const getMovies = async (url) => {
   } catch (error) {
     throw new Error('Error getting movies');
   }
-};
-
-export const movieCleaner = (moviesArray) => {
-  return moviesArray.map((movie) => {
-    return ({
-      title: movie.title, 
-      overview: movie.overview,
-      poster_path: movie.poster_path,
-      vote_average: movie.vote_average,
-      movie_id: movie.id,
-      release_date: movie.release_date
-    });
-  });
 };
 
 export const userLogin = async credentials => {
