@@ -7,6 +7,7 @@ export const getMovies = async (url) => {
     const response = await fetch(url);
     const movies = await response.json();
     const cleanMovies = movieCleaner(movies.results);
+    console.log(cleanMovies)
     return cleanMovies;
   } catch (error) {
     throw error;
@@ -20,7 +21,9 @@ const movieCleaner = (moviesArray) => {
       title: movie.title, 
       overview: movie.overview,
       poster: movie.poster_path,
-      rating: movie.vote_average
+      rating: movie.vote_average,
+      movieId: movie.id,
+      release: movie.release_date
     });
   });
 };
@@ -66,3 +69,28 @@ export const getFavorites = async userId => {
   }
 };
 
+const movieData = {
+  user_id: 1,
+  movie_id: 338970,
+  overview: "Lara Croft, the fiercely independent daughter of a missing adventurer, must push herself beyond her limits when she finds herself on the island where her father disappeared.",
+  poster_path: "/ePyN2nX9t8SOl70eRW47Q29zUFO.jpg",
+  vote_average: 6.2,
+  release_date: "2018-03-08",
+  title: "Tomb Raider"
+};
+
+export const addToFavorites = async () => {
+  const url = 'api/users/favorites/new';
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(movieData),
+      headers: { 'Content-Type': 'application/json' }
+    });
+    const favoriteId = await response.json();
+    console.log(favoriteId)
+    return favoriteId;
+  } catch (error) {
+    throw error;
+  }
+};

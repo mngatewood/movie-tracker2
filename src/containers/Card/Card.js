@@ -2,6 +2,7 @@ import './Card.css';
 import React from 'react';
 import { connect } from "react-redux";
 import { setError } from '../../actions';
+import { addToFavorites } from '../../apiCalls/apiCalls';
 
 const Card = ({movie, user, setError}) => {
   const { title, overview, poster, rating } = movie;
@@ -10,6 +11,10 @@ const Card = ({movie, user, setError}) => {
     if (!user.id) {
       const error = 'Create an account or Login';
       setError(error);
+    }
+
+    if (user.id) {
+      addToFavorites();
     }
   };
 
