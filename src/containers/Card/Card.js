@@ -4,8 +4,10 @@ import { connect } from "react-redux";
 import { setError, addFavoriteToStore } from '../../actions';
 import { addToFavoritesDb } from '../../apiCalls/apiCalls';
 
-const Card = ({movie, user, setError, addFavoriteToStore}) => {
+const Card = ({movie, user, setError, addFavoriteToStore, isFavorite}) => {
   const { title, overview, poster_path, vote_average } = movie;
+
+  console.log(isFavorite)
 
   const handleClick = () => {
     if (!user.id) {
@@ -13,7 +15,7 @@ const Card = ({movie, user, setError, addFavoriteToStore}) => {
       setError(error);
     }
 
-    if (user.id) {
+    if (user.id && !isFavorite) {
       addToFavoritesDb(movie, user.id);
       addFavoriteToStore(movie);
     }
