@@ -2,12 +2,10 @@ import './Card.css';
 import React from 'react';
 import { connect } from "react-redux";
 import { setError, addFavoriteToStore } from '../../actions';
-import { addToFavoritesDb } from '../../apiCalls/apiCalls';
+import { addToFavoritesDb, removeFromFavoritesDb } from '../../apiCalls/apiCalls';
 
 const Card = ({movie, user, setError, addFavoriteToStore, isFavorite}) => {
   const { title, overview, poster_path, vote_average } = movie;
-
-  console.log(isFavorite)
 
   const handleClick = () => {
     if (!user.id) {
@@ -18,6 +16,8 @@ const Card = ({movie, user, setError, addFavoriteToStore, isFavorite}) => {
     if (user.id && !isFavorite) {
       addToFavoritesDb(movie, user.id);
       addFavoriteToStore(movie);
+    } else {
+      removeFromFavoritesDb(movie.movie_id, user.id);
     }
   };
 
