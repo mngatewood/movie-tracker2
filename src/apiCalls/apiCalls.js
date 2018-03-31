@@ -54,3 +54,15 @@ export const userSignup = async accountInfo => {
     throw error;
   }
 };
+
+export const getFavorites = async userId => {
+  const url = `api/users/${userId}/favorites`;
+  try {
+    const response = await fetch(url);
+    const favorites = await response.json();
+    return favorites.data;
+  } catch (error) {
+    throw error;
+  }
+};
+

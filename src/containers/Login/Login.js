@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { userLogin } from '../../apiCalls/apiCalls';
-import { validateUser, setError } from '../../actions';
+import { userLogin, getFavorites } from '../../apiCalls/apiCalls';
+import { validateUser, setError, addFavorites } from '../../actions';
 import './Login.css';
 import { connect } from 'react-redux';
 
@@ -24,10 +24,13 @@ export class Login extends Component {
     event.preventDefault();
     try {
       const user = await userLogin(this.state);
+      const favorites = await getFavorites(user.id);
       this.props.validateUser(user);
+      this.props.addFavorites(favorites);
       this.props.history.push('/');
       const error = false;
       this.props.setError(error);
+
     } catch (error) {
       this.setState({
         email: "",
@@ -67,7 +70,8 @@ export class Login extends Component {
 
 const mapDispatchToProps = dispatch => ({
   validateUser: user => dispatch(validateUser(user)),
-  setError: error => dispatch(setError(error))
+  setError: error => dispatch(setError(error)),
+  addFavorites: favorites => dispatch(addFavorites(favorites))
 });
 
 export default withRouter(connect(null, mapDispatchToProps)(Login));

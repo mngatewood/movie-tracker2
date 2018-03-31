@@ -18,13 +18,13 @@ const Header = ({ logOut, error, user}) => {
       <div>
         <h3>Welcome {user.name}</h3>
         <NavLink to="/login" onClick={handleClick}>Logout</NavLink>
+        <NavLink to="/favorites">Favorites</NavLink>
       </div> 
       : 
       <div>
         <NavLink to="/login">Login</NavLink>
         <NavLink to="/signup">Sign Up</NavLink>
       </div>}
-    <NavLink to="/favorites">Favorites</NavLink>
     <h2>{error}</h2>
   </div>;
 };

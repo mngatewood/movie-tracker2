@@ -16,3 +16,8 @@ export const setError = (error) => ({
   type: 'SET_ERROR',
   error
 });
+
+export const addFavorites = (favorites) => ({
+  type: 'ADD_FAVORITES',
+  favorites
+});
