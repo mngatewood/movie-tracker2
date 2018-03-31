@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { userLogin } from '../../apiCalls/apiCalls';
-import { validateUser } from '../../actions';
+import { validateUser, setError } from '../../actions';
 import './Login.css';
 import { connect } from 'react-redux';
 
@@ -26,6 +26,8 @@ export class Login extends Component {
       const user = await userLogin(this.state);
       this.props.validateUser(user);
       this.props.history.push('/');
+      const error = false;
+      this.props.setError(error);
     } catch (error) {
       this.setState({
         email: "",
@@ -64,7 +66,8 @@ export class Login extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  validateUser: user => dispatch(validateUser(user))
+  validateUser: user => dispatch(validateUser(user)),
+  setError: error => dispatch(setError(error))
 });
 
 export default withRouter(connect(null, mapDispatchToProps)(Login));

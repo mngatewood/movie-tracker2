@@ -1,13 +1,15 @@
 import './Card.css';
 import React from 'react';
 import { connect } from "react-redux";
+import { setError } from '../../actions';
 
-const Card = ({movie, user}) => {
+const Card = ({movie, user, setError}) => {
   const { title, overview, poster, rating } = movie;
 
   const handleClick = () => {
     if (!user.id) {
-      
+      const error = 'Create an account or Login';
+      setError(error);
     }
   };
 
@@ -27,4 +29,8 @@ const mapStateToProps = state => ({
   user: state.user
 });
 
-export default connect(mapStateToProps, null)(Card);
+const mapDispatchToProps = dispatch => ({
+  setError: error => dispatch(setError(error))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Card);

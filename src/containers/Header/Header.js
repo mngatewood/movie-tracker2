@@ -4,19 +4,19 @@ import { connect } from 'react-redux';
 import { logOut } from '../../actions';
 
 
-const Header = (props) => {
+const Header = ({ logOut, error, user}) => {
   
   const handleClick = () => {
-    props.logOut();
+    logOut();
   };
 
   return <div>
     <NavLink to="/">
       <h1>Movie Tracker</h1>
     </NavLink>
-    {props.user.name ? 
+    {user.name ? 
       <div>
-        <h3>Welcome {props.user.name}</h3>
+        <h3>Welcome {user.name}</h3>
         <NavLink to="/login" onClick={handleClick}>Logout</NavLink>
       </div> 
       : 
@@ -25,11 +25,13 @@ const Header = (props) => {
         <NavLink to="/signup">Sign Up</NavLink>
       </div>}
     <NavLink to="/favorites">Favorites</NavLink>
+    <h2>{error}</h2>
   </div>;
 };
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user,
+  error: state.error
 });
 
 const mapDispatchToProps = dispatch => ({
