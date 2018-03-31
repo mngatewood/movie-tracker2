@@ -5,7 +5,7 @@ import Card from '../Card/Card';
 
 const Favorites = ({favorites}) => {
   const displayFavorites = favorites.map(favorite => {
-    return <Card key={favorite.id} 
+    return <Card key={favorite.movie_id} 
       movie={favorite}
       isFavorite={true}/>;
   });

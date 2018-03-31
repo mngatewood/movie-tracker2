@@ -17,7 +17,9 @@ const Card = ({movie, user, setError, addFavoriteToStore, isFavorite, removeFavo
     if (user.id && !isFavorite) {
       addToFavoritesDb(movie, user.id);
       addFavoriteToStore(movie);
-    } else {
+    } 
+    
+    if (user.id && isFavorite) {
       removeFromFavoritesDb(movie_id, user.id);
       removeFavoriteFromStore(movie_id);
     }

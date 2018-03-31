@@ -16,7 +16,7 @@ const CardContainer = ({movies, favorites}) => {
         }
       });
       return <Card
-        key={movie.key}
+        key={movie.movie_id}
         movie={movie} 
         isFavorite={isFavorite} />;
     });

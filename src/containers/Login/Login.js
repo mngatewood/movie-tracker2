@@ -53,7 +53,7 @@ export class Login extends Component {
             placeholder="Enter your email address." 
             onChange={this.handleChange} />
           <input 
-            type="text"
+            type="password"
             name="password"
             value={this.state.password}
             placeholder="Enter your password"
