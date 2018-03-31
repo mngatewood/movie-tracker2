@@ -5,7 +5,7 @@ import { setError } from '../../actions';
 import { addToFavorites } from '../../apiCalls/apiCalls';
 
 const Card = ({movie, user, setError}) => {
-  const { title, overview, poster, rating } = movie;
+  const { title, overview, poster_path, vote_average } = movie;
 
   const handleClick = () => {
     if (!user.id) {
@@ -14,16 +14,16 @@ const Card = ({movie, user, setError}) => {
     }
 
     if (user.id) {
-      addToFavorites();
+      addToFavorites(movie, user.id);
     }
   };
 
   return (
     <div>
       <h3>{title}</h3>
-      <img src={`https://image.tmdb.org/t/p/w200/${poster}`} 
+      <img src={`https://image.tmdb.org/t/p/w200/${poster_path}`} 
         alt="movie poster" />
-      <p>Rating: {rating}</p>
+      <p>Rating: {vote_average}</p>
       <button onClick={handleClick}>Favorite</button>
       <p>{}</p>
     </div>
