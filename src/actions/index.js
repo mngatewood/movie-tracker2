@@ -21,3 +21,12 @@ export const addFavorites = (favorites) => ({
   type: 'ADD_FAVORITES',
   favorites
 });
+
+export const addFavoriteToStore = (favorite) => ({
+  type: 'ADD_FAVORITE_TO_STORE',
+  favorite
+});
+
+export const resetFavorites = () => ({
+  type: 'RESET_FAVORITES'
+});

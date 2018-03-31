@@ -70,7 +70,7 @@ export const getFavorites = async userId => {
 };
 
 
-export const addToFavorites = async (movieData, userId) => {
+export const addToFavoritesDb = async (movieData, userId) => {
   const favoriteData = {...movieData, user_id: userId};
   const url = 'api/users/favorites/new';
   try {

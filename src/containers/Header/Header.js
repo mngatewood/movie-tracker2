@@ -1,13 +1,14 @@
 import React from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { logOut } from '../../actions';
+import { logOut, resetFavorites } from '../../actions';
 
 
-const Header = ({ logOut, error, user}) => {
+const Header = ({ logOut, error, user, resetFavorites}) => {
   
   const handleClick = () => {
     logOut();
+    resetFavorites();
   };
 
   return <div>
@@ -35,7 +36,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  logOut: () => dispatch(logOut())
+  logOut: () => dispatch(logOut()),
+  resetFavorites: () => dispatch(resetFavorites())
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
