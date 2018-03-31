@@ -30,3 +30,8 @@ export const addFavoriteToStore = (favorite) => ({
 export const resetFavorites = () => ({
   type: 'RESET_FAVORITES'
 });
+
+export const removeFavoriteFromStore = (movie_id) => ({
+  type: 'REMOVE_FAVORITE_FROM_STORE',
+  movie_id
+});

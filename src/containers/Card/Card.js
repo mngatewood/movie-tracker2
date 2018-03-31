@@ -1,11 +1,11 @@
 import './Card.css';
 import React from 'react';
 import { connect } from "react-redux";
-import { setError, addFavoriteToStore } from '../../actions';
+import { setError, addFavoriteToStore, removeFavoriteFromStore } from '../../actions';
 import { addToFavoritesDb, removeFromFavoritesDb } from '../../apiCalls/apiCalls';
 
-const Card = ({movie, user, setError, addFavoriteToStore, isFavorite}) => {
-  const { title, overview, poster_path, vote_average } = movie;
+const Card = ({movie, user, setError, addFavoriteToStore, isFavorite, removeFavoriteFromStore}) => {
+  const { title, overview, poster_path, vote_average, movie_id } = movie;
 
   const handleClick = () => {
     if (!user.id) {
@@ -17,7 +17,8 @@ const Card = ({movie, user, setError, addFavoriteToStore, isFavorite}) => {
       addToFavoritesDb(movie, user.id);
       addFavoriteToStore(movie);
     } else {
-      removeFromFavoritesDb(movie.movie_id, user.id);
+      removeFromFavoritesDb(movie_id, user.id);
+      removeFavoriteFromStore(movie_id);
     }
   };
 
@@ -39,7 +40,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   setError: error => dispatch(setError(error)),
-  addFavoriteToStore: favorite => dispatch(addFavoriteToStore(favorite))
+  addFavoriteToStore: favorite => dispatch(addFavoriteToStore(favorite)),
+  removeFavoriteFromStore: movie_id => dispatch(removeFavoriteFromStore(movie_id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);

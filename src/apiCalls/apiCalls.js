@@ -95,7 +95,6 @@ export const removeFromFavoritesDb = async (movieId, userId) => {
       headers: { 'Content-Type': 'application/json' }
     });
     const favoriteId = await response.json();
-    console.log(favoriteId)
     return favoriteId;
   } catch (error) {
     throw error;
