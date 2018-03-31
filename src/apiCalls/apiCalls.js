@@ -1,6 +1,6 @@
 import apiKey from './apiKey';
 
-export const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&primary_release_date.gte=2018-02-27&primary_release_date.lte=2018-03-27`;
+export const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&primary_release_date.gte=2018-03-01&primary_release_date.lte=2018-03-31`;
 
 export const getMovies = async (url) => {
   try {
@@ -14,13 +14,14 @@ export const getMovies = async (url) => {
 };
 
 const movieCleaner = (moviesArray) => {
-  return moviesArray.map((movie, index) => {
+  return moviesArray.map((movie) => {
     return ({
-      key: movie.title + index,
       title: movie.title, 
       overview: movie.overview,
-      poster: movie.poster_path,
-      rating: movie.vote_average
+      poster_path: movie.poster_path,
+      vote_average: movie.vote_average,
+      movie_id: movie.id,
+      release_date: movie.release_date
     });
   });
 };
@@ -50,6 +51,49 @@ export const userSignup = async accountInfo => {
     });
     const userId = await response.json();
     return userId;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getFavorites = async userId => {
+  const url = `api/users/${userId}/favorites`;
+  try {
+    const response = await fetch(url);
+    const favorites = await response.json();
+    return favorites.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const addToFavoritesDb = async (movieData, userId) => {
+  const favoriteData = {...movieData, user_id: userId};
+  const url = 'api/users/favorites/new';
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(favoriteData),
+      headers: { 'Content-Type': 'application/json' }
+    });
+    const favoriteId = await response.json();
+    return favoriteId;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const removeFromFavoritesDb = async (movieId, userId) => {
+  const favoriteData = {movieId, userId};
+  const url = `api/users/${userId}/favorites/${movieId}`;
+  try {
+    const response = await fetch(url, {
+      method: 'DELETE',
+      body: JSON.stringify(favoriteData),
+      headers: { 'Content-Type': 'application/json' }
+    });
+    const favoriteId = await response.json();
+    return favoriteId;
   } catch (error) {
     throw error;
   }

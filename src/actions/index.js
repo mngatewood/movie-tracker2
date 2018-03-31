@@ -10,4 +10,28 @@ export const validateUser = (user) => ({
 
 export const logOut = () => ({
   type: 'LOG_OUT'
-}); 
+});
+
+export const setError = (error) => ({
+  type: 'SET_ERROR',
+  error
+});
+
+export const addFavorites = (favorites) => ({
+  type: 'ADD_FAVORITES',
+  favorites
+});
+
+export const addFavoriteToStore = (favorite) => ({
+  type: 'ADD_FAVORITE_TO_STORE',
+  favorite
+});
+
+export const resetFavorites = () => ({
+  type: 'RESET_FAVORITES'
+});
+
+export const removeFavoriteFromStore = (movie_id) => ({
+  type: 'REMOVE_FAVORITE_FROM_STORE',
+  movie_id
+});

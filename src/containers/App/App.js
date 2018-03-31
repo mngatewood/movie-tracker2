@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import Header from '../Header/Header';
 import Login from '../Login/Login';
 import Signup from '../Signup/Signup';
+import Favorites from '../Favorites/Favorites';
 
 class App extends Component {
 
@@ -24,6 +25,7 @@ class App extends Component {
         <Route exact path='/' render={() => <CardContainer />} />
         <Route path='/login' render={() => <Login />} />
         <Route path='/signup' render={() => <Signup />} />
+        <Route path='/favorites' render={() => <Favorites />} />
       </div>
     );
   }
