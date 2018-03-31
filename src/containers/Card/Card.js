@@ -6,6 +6,7 @@ import { addToFavoritesDb, removeFromFavoritesDb } from '../../apiCalls/apiCalls
 
 const Card = ({movie, user, setError, addFavoriteToStore, isFavorite, removeFavoriteFromStore}) => {
   const { title, overview, poster_path, vote_average, movie_id } = movie;
+  const favorite = isFavorite ? 'favorite' : '';
 
   const handleClick = () => {
     if (!user.id) {
@@ -23,7 +24,7 @@ const Card = ({movie, user, setError, addFavoriteToStore, isFavorite, removeFavo
   };
 
   return (
-    <div>
+    <div className={`card ${favorite}`}>
       <h3>{title}</h3>
       <img src={`https://image.tmdb.org/t/p/w200/${poster_path}`} 
         alt="movie poster" />
