@@ -24,7 +24,9 @@ const CardContainer = ({movies, favorites}) => {
   return (
     <div>
       <h2>Movies</h2>
-      {displayCards}
+      <div className="card-container">
+        {displayCards}
+      </div>
     </div>
   );
 };
