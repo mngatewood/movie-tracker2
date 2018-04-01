@@ -1,6 +1,9 @@
 import apiKey from './apiKey';
 
-export const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&primary_release_date.gte=2018-03-01&primary_release_date.lte=2018-03-31`;
+const urlRoot = 'https://api.themoviedb.org/3/movie/now_playing?';
+const urlKey = `api_key=${apiKey}`;
+const urlQuery = '&language=en-US&page=1'
+export const url = `${urlRoot}${urlKey}${urlQuery}`;
 
 export const getMovies = async (url) => {
   try {
