@@ -18,11 +18,13 @@ const Header = ({ logOut, error, user, resetFavorites}) => {
     {user.name ? 
       <div>
         <h3>Welcome {user.name}</h3>
+        <NavLink to="/">Movies</NavLink>
         <NavLink to="/login" onClick={handleClick}>Logout</NavLink>
         <NavLink to="/favorites">Favorites</NavLink>
       </div> 
       : 
       <div>
+        <NavLink to="/">Movies</NavLink>
         <NavLink to="/login">Login</NavLink>
         <NavLink to="/signup">Sign Up</NavLink>
       </div>}
