@@ -8,8 +8,14 @@ const Card = ({movie, user, setError, addFavoriteToStore, isFavorite, removeFavo
   const { title, overview, poster_path, vote_average, movie_id } = movie;
   const favorite = isFavorite ? 'favorite' : '';
 
-  const handleClick = () => {
+  const handleClick = (event) => {
     if (!user.id) {
+      const allErrorDivsArray = document.querySelectorAll(".addFaveError");
+      allErrorDivsArray.forEach(errorDiv => {
+        errorDiv.classList.add("hidden")
+      });
+      const errorDiv = event.target.nextSibling;
+      errorDiv.classList.remove("hidden");
       const error = 'Create an account or Login';
       setError(error);
     }
@@ -27,11 +33,27 @@ const Card = ({movie, user, setError, addFavoriteToStore, isFavorite, removeFavo
 
   return (
     <div className={`card ${favorite}`}>
-{/*      <h3>{title}</h3> */}
       <img src={`https://image.tmdb.org/t/p/w200/${poster_path}`} 
         alt="movie poster" />
-      {/*      <p>Rating: {vote_average}</p>  */}
-        <button onClick={handleClick}>Favorite</button>
+      <div className="movieDetails">
+        <div className="title">
+          <h4>{title}</h4>
+        </div>
+        <div className="overview">
+          <p>{overview}</p>
+        </div>
+        <div className="rating">
+          <h4>Rating: {vote_average}</h4>
+        </div>
+      </div>
+      <button onClick={(event) => handleClick(event)}>Favorite</button>
+      <div className={"addFaveError hidden"}>
+        <p>You must</p>
+        <h4><a href="/login">Log In</a></h4>
+        <p>or</p>
+        <h4><a href="/signup">Sign Up</a></h4>
+        <p>before adding favorites.</p>
+      </div>
     </div>
   );
 };
