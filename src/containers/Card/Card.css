@@ -1,3 +1,14 @@
-.favorite {
-  border: 5px solid black;
+.card {
+  margin: 10px 0;
+}
+
+.favorite img {
+  opacity: 0.5;
+}
+
+.card button {
+  position: relative;
+  margin-right: -30px;
+  top: -6px;
+  right: 56px;
 }

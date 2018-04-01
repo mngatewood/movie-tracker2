@@ -27,12 +27,11 @@ const Card = ({movie, user, setError, addFavoriteToStore, isFavorite, removeFavo
 
   return (
     <div className={`card ${favorite}`}>
-      <h3>{title}</h3>
+{/*      <h3>{title}</h3> */}
       <img src={`https://image.tmdb.org/t/p/w200/${poster_path}`} 
         alt="movie poster" />
-      <p>Rating: {vote_average}</p>
-      <button onClick={handleClick}>Favorite</button>
-      <p>{}</p>
+      {/*      <p>Rating: {vote_average}</p>  */}
+        <button onClick={handleClick}>Favorite</button>
     </div>
   );
 };

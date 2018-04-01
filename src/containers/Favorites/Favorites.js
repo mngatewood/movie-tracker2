@@ -12,9 +12,11 @@ const Favorites = ({favorites}) => {
   return (
     <div>
       <h2>Favorites</h2>
-      {displayFavorites.length > 0 ? 
-        displayFavorites : 
-        <h4>There are no favorites to display.</h4>}
+      <div className="card-container">
+        {displayFavorites.length > 0 ? 
+          displayFavorites : 
+          <h4>There are no favorites to display.</h4>}
+      </div>
     </div>
   );
 };
