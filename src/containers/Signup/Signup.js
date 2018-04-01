@@ -13,43 +13,43 @@ export class Signup extends Component {
       name: '',
       email: '',
       password: '',
-      resultMessage: ''
+      errorMessage: ''
     };
   }
 
-  isEmail = (email) => {
+  validateEmail = (email) => {
     // eslint-disable-next-line
     return /^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*$/.test(email);
   }
 
   handleSubmit = async event => {
     event.preventDefault();
-    let signupSuccess = false;
-    let resultMessage;
-    const validEmail = this.isEmail(this.state.email);
+    let errorMessage = "";
+    const validEmail = this.validateEmail(this.state.email);
     if (validEmail) {
       try {
         const signUpFetch = await userSignup(this.state);
         if (signUpFetch.error) {
           throw new Error("Error");
         } else {
-          signupSuccess = true;
-          resultMessage = "You have successfully created an account.  You will now be redirected to the login page.";
+          const success = "You have successfully created an account.  ";
+          const redirect = "You will now be redirected to the login page.";
+          alert(success + redirect);
+          this.props.history.push("/login");
         }
       } catch (error) {
-        resultMessage = "Email address has already been used.";
+        errorMessage = "Email address has already been used.";
       }
     } else {
-      resultMessage = "Please enter a valid email address.";
+      errorMessage = "Please enter a valid email address.";
     }
     this.setState({
       name: "",
       email: "",
       password: "",
-      resultMessage: resultMessage
+      errorMessage: errorMessage
     });
-    signupSuccess && setTimeout(function () { alert("Success!"); }, 3000);
-    this.props.history.push("/login");
+
   }
 
   handleChange = event => {
@@ -58,6 +58,10 @@ export class Signup extends Component {
   };
 
   render() {
+    const enableSubmit =
+      this.state.name &&
+      this.state.email &&
+      this.state.password;
     return <div>
       <h2>Sign Up</h2>
       <h4>Please enter your name, email address, and password to create an account.</h4>
@@ -82,11 +86,12 @@ export class Signup extends Component {
           onChange={this.handleChange} />
         <button 
           type="submit" 
-          name="submit">
+          name="submit"
+          disabled={!enableSubmit}>
             Submit
         </button>
       </form>
-      <h2 className="resultMessage">{this.state.resultMessage}</h2>
+      <h2 className="errorMessage">{this.state.errorMessage}</h2>
     </div>;
   }
 }

@@ -35,13 +35,14 @@ export class Login extends Component {
       this.setState({
         email: "",
         password: "",
-        errorMessage: "Email and Password do not match"
+        errorMessage: "Email and password do not match."
       });
     }
   }
   
   
   render() {
+    const enableSubmit = this.state.email && this.state.password; 
     return (
       <div>
         <h2>Login</h2>
@@ -61,9 +62,12 @@ export class Login extends Component {
             onChange={this.handleChange} />
           <button
             type="submit" 
-            name="submit">Submit</button>
+            name="submit"
+            disabled={!enableSubmit}>
+              Submit
+          </button>
         </form>
-        <h2>{this.state.errorMessage}</h2>
+        <h2 className="errorMessage">{this.state.errorMessage}</h2>
       </div>
     );
   }
