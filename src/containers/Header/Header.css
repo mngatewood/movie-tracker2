@@ -1,0 +1,35 @@
+.nav-link-wrapper {
+  display: inline-block;
+  height: 18px;
+  /* width: 100px; */
+  padding: 10px 0;
+  /* margin: 25px; */
+  border: 1px solid black;
+}
+
+
+a {
+  color: black;
+  background-color: white;
+  padding: 10px;
+
+}
+
+.active {
+  color: blue;
+  background-color: lightgray;
+
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+  width: 320px;
+  right: 10px;
+}
+
+.header {
+  display: flex;
+  /* justify-content: flex-start */
+}
