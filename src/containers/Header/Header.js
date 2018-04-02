@@ -2,14 +2,17 @@ import React from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logOut, resetFavorites } from '../../actions';
-import './Header.css'
+import './Header.css';
+import PropTypes from 'prop-types'
 
 const Header = ({ logOut, error, user, resetFavorites}) => {
   
   const handleClick = () => {
     logOut();
     resetFavorites();
-    alert("You have successfully logged out. Click OK to return to the login page.")
+    const alertLogOut = "You have successfully logged out.  ";
+    const alertRedirect = "Click OK to return to the login page.";
+    alert(alertLogOut + alertRedirect);
   };
 
   return <div className="header">
@@ -20,7 +23,7 @@ const Header = ({ logOut, error, user, resetFavorites}) => {
           <h3>Welcome {user.name}</h3>
         </div>
         <div className="nav-link-wrapper"><NavLink exact to="/">Movies</NavLink></div>
-        <div className="nav-link-wrapper"><NavLink to="/" onClick={handleClick}>Logout</NavLink></div>
+        <div className="nav-link-wrapper"><NavLink to="/login" onClick={handleClick}>Logout</NavLink></div>
         <div className="nav-link-wrapper"><NavLink to="/favorites">Favorites</NavLink></div>
       </div> 
       : 
@@ -47,3 +50,10 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
+
+Header.propTypes = {
+  logOut: PropTypes.function,
+  error: PropTypes.string,
+  user: PropTypes.object,
+  resetFavorites: PropTypes.function
+};

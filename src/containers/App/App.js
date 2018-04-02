@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, NavLink, withRouter } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import CardContainer from '../CardContainer/CardContainer';
-import { getMovies, url, userLogin } from '../../apiCalls/apiCalls';
-import { addMovies, validateUser } from '../../actions';
+import { getMovies, url } from '../../apiCalls/apiCalls';
+import { addMovies } from '../../actions';
 import { connect } from 'react-redux';
 import Header from '../Header/Header';
 import Login from '../Login/Login';
@@ -18,7 +18,7 @@ class App extends Component {
   }
 
   render() {
-    const { user } = this.props;
+    // const { user } = this.props;
     return (
       <div className="App">
         <Header />

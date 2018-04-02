@@ -3,8 +3,10 @@ import React from 'react';
 import { connect } from "react-redux";
 import { setError, addFavoriteToStore, removeFavoriteFromStore } from '../../actions';
 import { addToFavoritesDb, removeFromFavoritesDb } from '../../apiCalls/apiCalls';
+import PropTypes from 'prop-types';
 
 const Card = ({movie, user, setError, addFavoriteToStore, isFavorite, removeFavoriteFromStore}) => {
+  // eslint-disable-next-line
   const { title, overview, poster_path, vote_average, movie_id } = movie;
   const favorite = isFavorite ? 'favorite' : '';
 
@@ -69,3 +71,12 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);
+
+Card.propTypes = {
+  movie: PropTypes.object,
+  user: PropTypes.object,
+  setError: PropTypes.function,
+  addFavoriteToStore: PropTypes.function,
+  isFavorite: PropTypes.function,
+  removeFavoriteFromStore: PropTypes.function
+};

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Signup.css';
-import { userSignup, userLogin } from '../../apiCalls/apiCalls';
+import { userSignup } from '../../apiCalls/apiCalls';
 import { validateUser } from '../../actions';
 import { connect } from 'react-redux';
 import { withRouter } from "react-router-dom";
@@ -101,4 +101,3 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default withRouter(connect(null, mapDispatchToProps)(Signup));
-
