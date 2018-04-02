@@ -7,7 +7,6 @@ describe ('helper functions', () => {
     let mockUrl;
     let mockMovieData
 
-
     beforeAll( () => {
 
       mockMovieData = {
@@ -27,28 +26,24 @@ describe ('helper functions', () => {
         })
       ))
 
-      mockUrl = 'http://www.movies.com'
-
     })
 
     it('calls fetch with expected params', () => {
-      helper.getMovies(mockUrl);
-      expect(window.fetch).toHaveBeenCalledWith(mockUrl)
+      helper.getMovies();
+      expect(window.fetch).toHaveBeenCalled()
     })
 
-    it('calls movieCleaner with expected params', async () => {
-      await helper.getMovies(mockUrl);
-      await expect(movieCleaner).toHaveBeenCalled();
-    })
+    // it('calls movieCleaner with expected params', async () => {
+    //   await helper.getMovies(mockUrl);
+    //   await expect(movieCleaner).toHaveBeenCalled();
+    // })
 
     it('returns a movie object when status is ok', async () => {
-      const expected = [{ 
-        key: 'Tomb Raider0',
-        title: 'Tomb Raider',
-        overview: 'mockOverview',
-        poster : "mockPosterPath",
-        rating: '5'
-      }]
+      const expected = [{
+        "overview": "mockOverview", 
+        "poster_path": "mockPosterPath", 
+        "title": "Tomb Raider", 
+        "vote_average": "5" }]
       await expect(helper.getMovies(mockUrl)).resolves.toEqual(expected)
     })
 
@@ -66,7 +61,7 @@ describe ('helper functions', () => {
 
   describe('userLogin', () => {
     it('should call fetch with correct params', () => {
-
+      
     })
 
     it('should return data when status is ok', () => {
