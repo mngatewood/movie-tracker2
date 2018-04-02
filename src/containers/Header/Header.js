@@ -52,8 +52,11 @@ const mapDispatchToProps = dispatch => ({
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
 
 Header.propTypes = {
-  logOut: PropTypes.function,
-  error: PropTypes.string,
+  logOut: PropTypes.func,
+  error: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.bool
+  ]),
   user: PropTypes.object,
-  resetFavorites: PropTypes.function
+  resetFavorites: PropTypes.func
 };
