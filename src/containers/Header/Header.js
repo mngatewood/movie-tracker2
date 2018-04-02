@@ -49,8 +49,6 @@ const mapDispatchToProps = dispatch => ({
   resetFavorites: () => dispatch(resetFavorites())
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
-
 Header.propTypes = {
   logOut: PropTypes.func,
   error: PropTypes.oneOfType([
@@ -60,3 +58,6 @@ Header.propTypes = {
   user: PropTypes.object,
   resetFavorites: PropTypes.func
 };
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
+
