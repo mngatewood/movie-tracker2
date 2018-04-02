@@ -9,19 +9,25 @@ const Header = ({ logOut, error, user, resetFavorites}) => {
   const handleClick = () => {
     logOut();
     resetFavorites();
+    alert("You have successfully logged out. Click OK to return to the login page.")
   };
 
   return <div className="header">
     <h1>Movie Tracker</h1>
     {user.name ? 
       <div className="nav">
-        <h3>Welcome {user.name}</h3>
+        <div className="welcome">
+          <h3>Welcome {user.name}</h3>
+        </div>
         <div className="nav-link-wrapper"><NavLink exact to="/">Movies</NavLink></div>
-        <div className="nav-link-wrapper"><NavLink to="/login" onClick={handleClick}>Logout</NavLink></div>
+        <div className="nav-link-wrapper"><NavLink to="/" onClick={handleClick}>Logout</NavLink></div>
         <div className="nav-link-wrapper"><NavLink to="/favorites">Favorites</NavLink></div>
       </div> 
       : 
       <div className="nav">
+        <div className="welcome">
+          <h3>You are logged out.</h3>
+        </div>
         <div className="nav-link-wrapper"><NavLink exact to="/">Movies</NavLink></div>
         <div className="nav-link-wrapper"><NavLink to="/login">Login</NavLink></div>
         <div className="nav-link-wrapper"><NavLink to="/signup">Sign Up</NavLink></div>
