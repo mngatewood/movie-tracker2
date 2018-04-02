@@ -68,7 +68,7 @@ export const addToFavoritesDb = async (movieData, userId) => {
     const favoriteId = await response.json();
     return favoriteId;
   } catch (error) {
-    throw error;
+    throw new Error('Error adding to favorites');
   }
 };
 
@@ -84,6 +84,6 @@ export const removeFromFavoritesDb = async (movieId, userId) => {
     const favoriteId = await response.json();
     return favoriteId;
   } catch (error) {
-    throw error;
+    throw new Error('Error removing favorite');
   }
 };
