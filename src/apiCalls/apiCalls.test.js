@@ -64,4 +64,35 @@ describe ('helper functions', () => {
     })
   })
 
+  describe('userLogin', () => {
+    it('should call fetch with correct params', () => {
+
+    })
+
+    it('should return data when status is ok', () => {
+
+
+    })
+
+    it('should throw an error when status is not ok', () => {
+
+    })
+
+  })
+
+  describe('userSignup', () => {
+    it('should call fetch with correct params', () => {
+
+    })
+
+    it('should return userId when status is ok', () => {
+
+
+    })
+
+    it('should throw an error when status is not ok', () => {
+
+    })
+
+  })
 })
