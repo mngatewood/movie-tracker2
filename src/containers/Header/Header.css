@@ -7,18 +7,15 @@
   border: 1px solid black;
 }
 
-
 a {
   color: black;
   background-color: white;
   padding: 10px;
-
 }
 
 .active {
   color: blue;
   background-color: lightgray;
-
 }
 
 .nav {

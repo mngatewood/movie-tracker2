@@ -27,6 +27,7 @@ export class Login extends Component {
       const favorites = await getFavorites(user.id);
       this.props.validateUser(user);
       this.props.addFavorites(favorites);
+      alert("You have successfully logged in.  Click OK to proceed to the Movies page.");
       this.props.history.push('/');
       const error = false;
       this.props.setError(error);
