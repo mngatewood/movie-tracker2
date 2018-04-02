@@ -10,12 +10,15 @@ import Login from '../Login/Login';
 import Signup from '../Signup/Signup';
 import Favorites from '../Favorites/Favorites';
 import PropTypes from 'prop-types';
+import { movieCleaner } from '../../apiCalls/movieCleaner'
+
 
 class App extends Component {
 
   async componentDidMount() {
-    const movies = await getMovies(url);
-    this.props.addMovies(movies);
+    const movies = await getMovies();
+    const cleanMovies = movieCleaner(movies);
+    this.props.addMovies(cleanMovies);
   }
 
   render() {

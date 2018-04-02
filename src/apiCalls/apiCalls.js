@@ -1,17 +1,15 @@
 import apiKey from './apiKey';
-import { movieCleaner } from './movieCleaner'
 
-const urlRoot = 'https://api.themoviedb.org/3/movie/now_playing?';
-const urlKey = `api_key=${apiKey}`;
-const urlQuery = '&language=en-US&page=1'
-export const url = `${urlRoot}${urlKey}${urlQuery}`;
+export const getMovies = async () => {
+  const urlRoot = 'https://api.themoviedb.org/3/movie/now_playing?';
+  const urlKey = `api_key=${apiKey}`;
+  const urlQuery = '&language=en-US&page=1'
+  const url = `${urlRoot}${urlKey}${urlQuery}`; 
 
-export const getMovies = async (url) => {
   try {
     const response = await fetch(url);
     const movies = await response.json();
-    const cleanMovies = movieCleaner(movies.results);
-    return cleanMovies;
+    return movies.results;
   } catch (error) {
     throw new Error('Error getting movies');
   }
@@ -28,7 +26,7 @@ export const userLogin = async credentials => {
     const user = await response.json();
     return user.data;
   } catch (error) {
-    throw error;
+    throw new Error('Error logging in');
   }
 };
 
@@ -43,7 +41,7 @@ export const userSignup = async accountInfo => {
     const userId = await response.json();
     return userId;
   } catch (error) {
-    throw error;
+    throw new Error('Error signing up');
   }
 };
 
@@ -54,7 +52,7 @@ export const getFavorites = async userId => {
     const favorites = await response.json();
     return favorites.data;
   } catch (error) {
-    throw error;
+    throw new Error('Error getting favorites');
   }
 };
 
@@ -70,7 +68,7 @@ export const addToFavoritesDb = async (movieData, userId) => {
     const favoriteId = await response.json();
     return favoriteId;
   } catch (error) {
-    throw error;
+    throw new Error('Error adding to favorites');
   }
 };
 
@@ -86,6 +84,6 @@ export const removeFromFavoritesDb = async (movieId, userId) => {
     const favoriteId = await response.json();
     return favoriteId;
   } catch (error) {
-    throw error;
+    throw new Error('Error removing favorite');
   }
 };
