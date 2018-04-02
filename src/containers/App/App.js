@@ -9,7 +9,7 @@ import Header from '../Header/Header';
 import Login from '../Login/Login';
 import Signup from '../Signup/Signup';
 import Favorites from '../Favorites/Favorites';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 class App extends Component {
 

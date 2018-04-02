@@ -3,7 +3,7 @@ import { NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logOut, resetFavorites } from '../../actions';
 import './Header.css';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 const Header = ({ logOut, error, user, resetFavorites}) => {
   
