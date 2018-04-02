@@ -26,7 +26,7 @@ export const userLogin = async credentials => {
     const user = await response.json();
     return user.data;
   } catch (error) {
-    throw error;
+    throw new Error('Error logging in');
   }
 };
 
@@ -41,7 +41,7 @@ export const userSignup = async accountInfo => {
     const userId = await response.json();
     return userId;
   } catch (error) {
-    throw error;
+    throw new Error('Error signing up');
   }
 };
 
