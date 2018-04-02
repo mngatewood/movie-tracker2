@@ -75,8 +75,8 @@ export default connect(mapStateToProps, mapDispatchToProps)(Card);
 Card.propTypes = {
   movie: PropTypes.object,
   user: PropTypes.object,
-  setError: PropTypes.function,
-  addFavoriteToStore: PropTypes.function,
-  isFavorite: PropTypes.function,
-  removeFavoriteFromStore: PropTypes.function
+  setError: PropTypes.func,
+  addFavoriteToStore: PropTypes.func,
+  isFavorite: PropTypes.bool,
+  removeFavoriteFromStore: PropTypes.func
 };
