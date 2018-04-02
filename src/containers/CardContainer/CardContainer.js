@@ -2,6 +2,7 @@ import React from 'react';
 import './CardContainer.css';
 import { connect } from 'react-redux';
 import Card from '../Card/Card';
+import PropTypes from 'prop-types';
 
 const CardContainer = ({movies, favorites}) => {
   let displayCards;
@@ -37,3 +38,8 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(CardContainer);
+
+CardContainer.propTypes = {
+  movies: PropTypes.array,
+  users: PropTypes.array
+};
