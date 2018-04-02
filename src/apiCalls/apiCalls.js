@@ -52,7 +52,7 @@ export const getFavorites = async userId => {
     const favorites = await response.json();
     return favorites.data;
   } catch (error) {
-    throw error;
+    throw new Error('Error getting favorites');
   }
 };
 
