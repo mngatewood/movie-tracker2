@@ -80,3 +80,9 @@ export const mockGetFavoritesDbResponse = [
   }
 ];
 
+export const mockAddToFavoritesDbResponse = {
+  id: 70,
+  message: "Movie was added to favorites",
+  status: "success"
+};
+

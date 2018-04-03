@@ -2,7 +2,8 @@ import './Card.css';
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { setError, addFavoriteToStore, removeFavoriteFromStore } from '../../actions';
-import { addToFavoritesDb, removeFromFavoritesDb } from '../../apiCalls/apiCalls';
+import { removeFromFavoritesDb } from '../../apiCalls/apiCalls';
+import { addToFavoritesDb } from '../../apiCalls/addToFavoritesDb';
 import PropTypes from 'prop-types';
 
 export class Card extends Component {
