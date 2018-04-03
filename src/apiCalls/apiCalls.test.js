@@ -4,49 +4,6 @@ jest.mock('./movieCleaner')
 
 describe ('helper functions', () => {
 
-  describe('userLogin', () => {
-    let mockCredentials;
-
-    beforeEach(() => {
-      const mockCredentials = { 
-        username: 'me@gmail.com', 
-        password: 'password'
-      }
-      
-      window.fetch = jest.fn().mockImplementation(() => (
-        Promise.resolve({
-          ok: true,
-          json: () => Promise.resolve({data: mockCredentials})
-        })
-      ))
-    })
-
-    it('should call fetch', () => {
-      helper.userLogin(mockCredentials)
-      expect(window.fetch).toHaveBeenCalled();
-    })
-
-    it('should return data when status is ok', () => {
-      const expected = { 
-        username: 'me@gmail.com', 
-        password: 'password'
-      }
-
-      expect(helper.userLogin(mockCredentials)).resolves.toEqual(expected)
-    })
-
-    it('should throw an error when status is not ok', () => {
-      window.fetch = jest.fn().mockImplementation(() => (
-        Promise.reject({
-          ok: false,
-        })
-      ))
-      const expected = Error('Error logging in')
-
-      expect(helper.userLogin(mockCredentials)).rejects.toEqual(expected); 
-    })
-  })
-
   describe('userSignup', () => {
     let mockAccountInfo;
     let mockId
