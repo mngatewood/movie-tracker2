@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+
 import { getMovies } from '../getMovies';
 
 describe("getMovies", () => {

@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+
 export const movieCleaner = (moviesArray) => {
   return moviesArray.map((movie) => {
     return ({

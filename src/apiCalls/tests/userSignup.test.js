@@ -5,7 +5,7 @@ describe("userSignup", () => {
   let mockId;
 
   beforeEach(() => {
-    const mockAccountInfo = {
+    mockAccountInfo = {
       name: "me",
       username: "me@gmail.com",
       password: "password"

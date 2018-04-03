@@ -10,7 +10,7 @@ import Login from '../Login/Login';
 import Signup from '../Signup/Signup';
 import Favorites from '../Favorites/Favorites';
 import PropTypes from 'prop-types';
-import { movieCleaner } from '../../apiCalls/movieCleaner'
+import { movieCleaner } from '../../apiCalls/movieCleaner';
 
 
 class App extends Component {
@@ -34,7 +34,7 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   addMovies: (movies) => dispatch(addMovies(movies))
 });
 

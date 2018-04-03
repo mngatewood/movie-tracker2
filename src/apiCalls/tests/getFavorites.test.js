@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+
 import { getFavorites } from '../getFavorites';
 
 describe("getFavorites", () => {
@@ -25,7 +27,7 @@ describe("getFavorites", () => {
       })
     );
 
-    const mockUserId = 1;
+    mockUserId = 1;
   });
 
   it("should call fetch", () => {

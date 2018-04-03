@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+
 export const mockMovieArrayData = [
   {
     movie_id: 284054,
@@ -90,4 +92,34 @@ export const mockRemoveFromFavoritesDbResponse = {
   message: "1 row was deleted.",
   status: "success"
 };
+
+export const mockDirtyMovieData = [
+  {
+    adult: false,
+    backdrop_path: "/askg3SMvhqEl4OL52YuvdtY40Yb.jpg",
+    genre_ids: (4) [12, 35, 10751, 16],
+    id: 354912,
+    original_language: "en",
+    original_title: "Coco",
+    overview: "Despite his family’s baffling generations-old",
+    popularity: 237.912795,
+    poster_path: "/eKi8dIrr8voobbaGzDpe8w0PVbC.jpg",
+    release_date: "2017-10-27",
+    title: "Coco",
+    video: false,
+    vote_average: 7.8,
+    vote_count: 3570
+  }
+];
+
+export const cleanMovieData = [
+  {
+    movie_id: 354912,
+    overview: "Despite his family’s baffling generations-old",
+    poster_path: "/eKi8dIrr8voobbaGzDpe8w0PVbC.jpg",
+    release_date: "2017-10-27",
+    title: "Coco",
+    vote_average: 7.8
+  }
+];
 

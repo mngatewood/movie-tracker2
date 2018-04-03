@@ -81,7 +81,7 @@ Login.propTypes = {
   validateUser: PropTypes.func,
   setError: PropTypes.func,
   addFavorites: PropTypes.func,
-  history: PropTypes.objectOf
+  history: PropTypes.object
 };
 
 export default withRouter(connect(null, mapDispatchToProps)(Login));

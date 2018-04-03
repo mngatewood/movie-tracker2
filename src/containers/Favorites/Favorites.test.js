@@ -1,18 +1,27 @@
+/* eslint-disable camelcase */
+
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Favorites } from './Favorites';
+import { Favorites, mapStateToProps } from './Favorites';
 import { shallow } from 'enzyme';
 
 describe('Favorites', () => {
+  let mockFavorites;
+  let wrapper;
 
-  const mockFavorites = [
-    { title: 'movie1', movie_id: '1' }
-  ];
-  const wrapper = shallow(<Favorites
-    favorites={mockFavorites} />);
-
+  beforeEach(() => {
+    mockFavorites = [
+      { title: 'movie1', movie_id: '1' }
+    ];
+    wrapper = shallow(<Favorites
+      favorites={mockFavorites} />);
+  });
   it('matches the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it("should map to the store", () => {
+    const mockStore = { favorites: mockFavorites};
+    const mapped = mapStateToProps(mockStore);
+    expect(mapped).toEqual(mockStore);
+  });
 });
