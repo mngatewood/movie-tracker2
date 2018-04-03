@@ -30,9 +30,6 @@ export class Login extends Component {
       this.props.addFavorites(favorites);
       alert("You have successfully logged in.  Click OK to proceed to the Movies page.");
       this.props.history.push('/');
-      const error = false;
-      this.props.setError(error);
-
     } catch (error) {
       this.setState({
         email: "",
@@ -74,7 +71,7 @@ export class Login extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   validateUser: user => dispatch(validateUser(user)),
   setError: error => dispatch(setError(error)),
   addFavorites: favorites => dispatch(addFavorites(favorites))
