@@ -1,22 +1,26 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Login } from './Login';
+import { Login, mapDispatchToProps } from './Login';
 import { shallow } from 'enzyme';
+import { userLogin } from '../../apiCalls/userLogin';
+import { getFavorites } from '../../apiCalls/getFavorites';
+import { mockUser } from '../../mockData/mockData'
+
+jest.mock('../../apiCalls/userLogin');
+jest.mock('../../apiCalls/getFavorites');
 
 describe('Login', () => {
 
   let wrapper;
-  const mockHandleChange = jest.fn();
-  const mockHandleSubmit = jest.fn();
-  const mockUserLogin = jest.fn();
+  const mockValidateUser = jest.fn();
+  const mockAddFavorites = jest.fn();
 
   beforeEach(() => {
     wrapper = shallow(
       <Login
         name={''}
         email={''}
-        handleChange={mockHandleChange}
-        handleSubmit={mockHandleSubmit}
+        validateUser={mockValidateUser}
+        addFavorites={mockAddFavorites}
       />
     );
   });
@@ -54,24 +58,65 @@ describe('Login', () => {
   });
 
   it('calls userLogin with correct parameters on handleSubmit', () => {
-    const mockState =  {
+    const expectedState = {
       email: 'me@gmail.com',
       password: 'password'
     };
-    const spy = jest.spyOn(wrapper.instance(), 'userLogin');
+    const event = { preventDefault: jest.fn() };
+    wrapper.setState({
+      email: 'me@gmail.com',
+      password: 'password'
+    });
+    wrapper.instance().handleSubmit(event);
+    expect(userLogin).toHaveBeenCalledWith(expectedState);
+  });
+
+  it('calls getFavorites on handleSubmit', () => {
     const event = { preventDefault: jest.fn() };
     wrapper.instance().handleSubmit(event);
-    expect(mockUserLogin).toHaveBeenCalled();
+    expect(getFavorites).toHaveBeenCalled();
   });
-  
+
+  it('calls validateUser on handleSubmit', () => {
+    const event = { preventDefault: jest.fn() };
+    wrapper.instance().handleSubmit(event);
+    expect(mockValidateUser).toHaveBeenCalled();
+  });
+
+  it('calls addFavorites on handleSubmit', () => {
+    const event = { preventDefault: jest.fn() };
+    wrapper.instance().handleSubmit(event);
+    expect(mockAddFavorites).toHaveBeenCalled();
+  });
+
   it('displays an error message when credentials dont match', () => {
-    const expected = "Email and password do not match."
-    //mock throw error
-    expect(wrapper.state('errorMessage').toEqual(expected));
+    const expected = "Email and password do not match.";
+    const event = { preventDefault: jest.fn() };
+    window.fetch = jest.fn().mockImplementation(() =>
+      Promise.reject({
+        ok: false
+      })
+    );
+    wrapper.instance().handleSubmit(event);
+    expect(wrapper.state('errorMessage')).toEqual(expected);
   });
 
   it('disables submit button unless both fields contain data', () => {
+    expect(wrapper.find('button').prop('disabled')).toBe(true);
+    wrapper.setState({ email: 'me@gmail.com', password: ''});
+    expect(wrapper.find('button').prop('disabled')).toBe(true);
+    wrapper.setState({ email: 'me@gmail.com', password: 'password'});
+    expect(wrapper.find('button').prop('disabled')).toBe(false);
+  });
 
-  })
+  it('should call dispatch function when using mapDispatchToProps', () => {
+    const mockDispatch = jest.fn();
+    const mapped = mapDispatchToProps(mockDispatch);
+    mapped.setError();
+    mapped.addFavorites();
+    mapped.validateUser();
+    expect(mockDispatch).toHaveBeenCalled();
+  });
+
 
 });
