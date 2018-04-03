@@ -43,4 +43,43 @@ describe('actions', () => {
       expect(actions.logOut()).toEqual(expected)
     })
   })
+
+  describe('setError', () => {
+    it('should create a type of SET_ERROR', () => {
+      const error = 'error'
+      const expected = {"error": "error", "type": "SET_ERROR"}
+      expect(actions.setError(error)).toEqual(expected)
+    })
+  })
+
+  describe('addFavorites', () => {
+    it('should create a type of ADD_FAVORITES', () => {
+      const favorites = { movie_id: 1 }
+      const expected = { type: 'ADD_FAVORITES', favorites}
+      expect(actions.addFavorites(favorites)).toEqual(expected)
+    })
+  })
+
+  describe('addFavoriteToStore', () => {
+    it('should create a type of ADD_FAVORITE_TO_STORE', () => {
+      const favorite = { movie_id: 1}
+      const expected = {type: 'ADD_FAVORITE_TO_STORE', favorite}
+      expect(actions.addFavoriteToStore(favorite)).toEqual(expected)
+    })
+  })
+
+  describe('resetFavorites', () => {
+    it('should create a type of RESET_FAVORITES', () => {
+      const expected = {type: 'RESET_FAVORITES'}
+      expect(actions.resetFavorites()).toEqual(expected)
+    })
+  })
+
+  describe('removeFavoriteFromStore', () => {
+    it('should create a type of REMOVE_FAVORITE_FROM_STORE', () => {
+      const movie_id = 1
+      const expected = {type: 'REMOVE_FAVORITE_FROM_STORE', movie_id}
+      expect(actions.removeFavoriteFromStore(movie_id)).toEqual(expected)
+    })
+  })
 })
