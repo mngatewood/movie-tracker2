@@ -15,6 +15,7 @@ class App extends Component {
 
   async componentDidMount() {
     const movies = await getMovies(url);
+    console.log(movies)
     this.props.addMovies(movies);
   }
 
