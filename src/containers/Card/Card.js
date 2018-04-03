@@ -16,7 +16,6 @@ export class Card extends Component {
 
   favoriteError() {
     if (!this.props.user.id) {
-      console.log('works')
       this.setState({ favErrorHidden: false });
     }
   }

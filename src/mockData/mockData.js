@@ -52,3 +52,12 @@ export const mockUser = {
   email: "tman2272@aol.com" 
 };
 
+export const mockGetMoviesApiData = [
+  { 
+    title: "Tomb Raider", 
+    overview: "mockOverview", 
+    poster_path: "mockPosterPath", 
+    vote_average: "5" 
+  }
+];
+
