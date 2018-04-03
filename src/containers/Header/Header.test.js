@@ -1,15 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Header } from './Header';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 
 describe('Header when logged in', () => {
 
   let wrapper;
   let mockUser;
-
-  beforeEach(() => {
-  });
 
   it('matches the snapshot', () => {
     const mockUser = { name: "me" };
@@ -17,14 +14,16 @@ describe('Header when logged in', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('should call logOut when handleClick is invoked', () => {
+  it('should call logOut and resetFavorites on handleClick', () => {
     mockUser = { name: "me" };
-    const mockFunction = jest.fn();
+    const mockLogOut = jest.fn();
+    const mockResetFavorites = jest.fn();
     wrapper = shallow(<Header user={mockUser} 
-      logOut={mockFunction} 
-      resetFavorites={mockFunction} />);
+      logOut={mockLogOut} 
+      resetFavorites={mockResetFavorites} />);
     wrapper.instance().handleClick();
-    expect(mockFunction).toHaveBeenCalled();
+    expect(mockLogOut).toHaveBeenCalled();
+    expect(mockResetFavorites).toHaveBeenCalled();
   });
 
 });
