@@ -4,7 +4,7 @@ exports[`Card should match the snapshot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Unknown
+  Symbol(enzyme.__unrendered__): <Card
     addFavoriteToStore={[Function]}
     isFavorite={false}
     movie={
@@ -78,7 +78,8 @@ ShallowWrapper {
           Favorite
 </button>,
         <div
-          className="addFaveError hidden"
+          className="addFaveError"
+          hidden={true}
 >
           <p>
                     You must
@@ -278,7 +279,8 @@ ShallowWrapper {
               before adding favorites.
 </p>,
           ],
-          "className": "addFaveError hidden",
+          "className": "addFaveError",
+          "hidden": true,
         },
         "ref": null,
         "rendered": Array [
@@ -416,7 +418,8 @@ ShallowWrapper {
             Favorite
 </button>,
           <div
-            className="addFaveError hidden"
+            className="addFaveError"
+            hidden={true}
 >
             <p>
                         You must
@@ -616,7 +619,8 @@ ShallowWrapper {
                 before adding favorites.
 </p>,
             ],
-            "className": "addFaveError hidden",
+            "className": "addFaveError",
+            "hidden": true,
           },
           "ref": null,
           "rendered": Array [

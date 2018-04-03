@@ -16,6 +16,7 @@ export class Card extends Component {
 
   favoriteError() {
     if (!this.props.user.id) {
+      console.log('works')
       this.setState({ favErrorHidden: false });
     }
   }
@@ -34,8 +35,8 @@ export class Card extends Component {
     }
   }
 
-  handleClick = (event) => {
-    this.favoriteError(event);
+  handleClick = () => {
+    this.favoriteError();
     this.addFavorite();
     this.removeFavorite(); 
   };
@@ -73,11 +74,11 @@ export class Card extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   user: state.user
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   setError: error => dispatch(setError(error)),
   addFavoriteToStore: favorite => dispatch(addFavoriteToStore(favorite)),
   removeFavoriteFromStore: movie_id => dispatch(removeFavoriteFromStore(movie_id))
