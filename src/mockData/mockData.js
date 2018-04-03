@@ -86,3 +86,8 @@ export const mockAddToFavoritesDbResponse = {
   status: "success"
 };
 
+export const mockRemoveFromFavoritesDbResponse = {
+  message: "1 row was deleted.",
+  status: "success"
+};
+
