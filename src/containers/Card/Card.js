@@ -6,11 +6,17 @@ import { addToFavoritesDb, removeFromFavoritesDb } from '../../apiCalls/apiCalls
 import PropTypes from 'prop-types';
 
 export class Card extends Component {
-  
-  favoriteError(event) {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      favErrorHidden: true
+    };
+  }
+
+  favoriteError() {
     if (!this.props.user.id) {
-      const errorDiv = event.target.nextSibling;
-      errorDiv.classList.remove("hidden");
+      this.setState({ favErrorHidden: false });
     }
   }
 
@@ -37,6 +43,7 @@ export class Card extends Component {
   render() {
     const { title, overview, poster_path, vote_average } = this.props.movie;
     const favorite = this.props.isFavorite ? 'favorite' : '';
+    const { favErrorHidden } = this.state;
 
     return (
       <div className={`card ${favorite}`}>
@@ -53,8 +60,8 @@ export class Card extends Component {
             <h4>Rating: {vote_average}</h4>
           </div>
         </div>
-        <button onClick={(event) => this.handleClick(event)}>Favorite</button>
-        <div className={"addFaveError hidden"}>
+        <button onClick={this.handleClick}>Favorite</button>
+        <div className={"addFaveError"} hidden={favErrorHidden}>
           <p>You must</p>
           <h4><a href="/login">Log In</a></h4>
           <p>or</p>
