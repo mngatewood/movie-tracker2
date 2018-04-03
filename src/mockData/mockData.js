@@ -61,3 +61,9 @@ export const mockGetMoviesApiData = [
   }
 ];
 
+export const mockSignupApiResponse = {
+  id: 31,
+  message: "New user created",
+  status: "success"
+};
+

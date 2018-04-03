@@ -1,3 +1,5 @@
+import { mockUser } from '../../mockData';
+
 export const userLogin = jest.fn().mockImplementation(() => {
-  return Promise.resolve({ id: 5 });
+  return Promise.resolve({mockUser});
 });
