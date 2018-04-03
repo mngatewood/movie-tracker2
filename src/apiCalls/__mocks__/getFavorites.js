@@ -1,5 +1,5 @@
 import { mockGetFavoritesDbResponse } from '../../mockData/mockData';
 
-export const userLogin = jest.fn().mockImplementation(() => {
+export const getFavorites = jest.fn().mockImplementation(() => {
   return Promise.resolve({ mockGetFavoritesDbResponse });
 });
