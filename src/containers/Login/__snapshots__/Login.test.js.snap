@@ -1,0 +1,350 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login matches the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Login
+    email=""
+    handleChange={[Function]}
+    handleSubmit={[Function]}
+    name=""
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h2>
+          Login
+</h2>,
+        <h4>
+          Please enter your email address and password to login.
+</h4>,
+        <form
+          onSubmit={[Function]}
+>
+          <input
+                    name="email"
+                    onChange={[Function]}
+                    placeholder="Enter your email address."
+                    type="text"
+                    value=""
+          />
+          <input
+                    name="password"
+                    onChange={[Function]}
+                    placeholder="Enter your password"
+                    type="password"
+                    value=""
+          />
+          <button
+                    disabled={true}
+                    name="submit"
+                    type="submit"
+          >
+                    Submit
+          </button>
+</form>,
+        <h2
+          className="errorMessage"
+/>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Login",
+        },
+        "ref": null,
+        "rendered": "Login",
+        "type": "h2",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Please enter your email address and password to login.",
+        },
+        "ref": null,
+        "rendered": "Please enter your email address and password to login.",
+        "type": "h4",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <input
+              name="email"
+              onChange={[Function]}
+              placeholder="Enter your email address."
+              type="text"
+              value=""
+/>,
+            <input
+              name="password"
+              onChange={[Function]}
+              placeholder="Enter your password"
+              type="password"
+              value=""
+/>,
+            <button
+              disabled={true}
+              name="submit"
+              type="submit"
+>
+              Submit
+</button>,
+          ],
+          "onSubmit": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "name": "email",
+              "onChange": [Function],
+              "placeholder": "Enter your email address.",
+              "type": "text",
+              "value": "",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "name": "password",
+              "onChange": [Function],
+              "placeholder": "Enter your password",
+              "type": "password",
+              "value": "",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Submit",
+              "disabled": true,
+              "name": "submit",
+              "type": "submit",
+            },
+            "ref": null,
+            "rendered": "Submit",
+            "type": "button",
+          },
+        ],
+        "type": "form",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": undefined,
+          "className": "errorMessage",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "h2",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h2>
+            Login
+</h2>,
+          <h4>
+            Please enter your email address and password to login.
+</h4>,
+          <form
+            onSubmit={[Function]}
+>
+            <input
+                        name="email"
+                        onChange={[Function]}
+                        placeholder="Enter your email address."
+                        type="text"
+                        value=""
+            />
+            <input
+                        name="password"
+                        onChange={[Function]}
+                        placeholder="Enter your password"
+                        type="password"
+                        value=""
+            />
+            <button
+                        disabled={true}
+                        name="submit"
+                        type="submit"
+            >
+                        Submit
+            </button>
+</form>,
+          <h2
+            className="errorMessage"
+/>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Login",
+          },
+          "ref": null,
+          "rendered": "Login",
+          "type": "h2",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Please enter your email address and password to login.",
+          },
+          "ref": null,
+          "rendered": "Please enter your email address and password to login.",
+          "type": "h4",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <input
+                name="email"
+                onChange={[Function]}
+                placeholder="Enter your email address."
+                type="text"
+                value=""
+/>,
+              <input
+                name="password"
+                onChange={[Function]}
+                placeholder="Enter your password"
+                type="password"
+                value=""
+/>,
+              <button
+                disabled={true}
+                name="submit"
+                type="submit"
+>
+                Submit
+</button>,
+            ],
+            "onSubmit": [Function],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "name": "email",
+                "onChange": [Function],
+                "placeholder": "Enter your email address.",
+                "type": "text",
+                "value": "",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "name": "password",
+                "onChange": [Function],
+                "placeholder": "Enter your password",
+                "type": "password",
+                "value": "",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Submit",
+                "disabled": true,
+                "name": "submit",
+                "type": "submit",
+              },
+              "ref": null,
+              "rendered": "Submit",
+              "type": "button",
+            },
+          ],
+          "type": "form",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": undefined,
+            "className": "errorMessage",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "h2",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
