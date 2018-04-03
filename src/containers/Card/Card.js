@@ -96,7 +96,8 @@ Card.propTypes = {
   setError: PropTypes.func,
   addFavoriteToStore: PropTypes.func,
   isFavorite: PropTypes.bool,
-  removeFavoriteFromStore: PropTypes.func
+  removeFavoriteFromStore: PropTypes.func,
+  movie_id: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);

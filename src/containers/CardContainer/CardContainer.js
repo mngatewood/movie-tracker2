@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Card from '../Card/Card';
 import PropTypes from 'prop-types';
 
-const CardContainer = ({movies, favorites}) => {
+export const CardContainer = ({movies, favorites}) => {
   let displayCards;
 
   if (movies) {
