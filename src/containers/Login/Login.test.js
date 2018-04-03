@@ -89,7 +89,7 @@ describe('Login', () => {
     expect(mockAddFavorites).toHaveBeenCalled();
   });
 
-  it('displays an error message when credentials dont match', () => {
+  it.skip('displays an error message when credentials dont match', () => {
     const expected = "Email and password do not match.";
     const event = { preventDefault: jest.fn() };
     window.fetch = jest.fn().mockImplementation(() =>
