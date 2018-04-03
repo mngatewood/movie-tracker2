@@ -97,7 +97,7 @@ export class Signup extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   validateUser: user => dispatch(validateUser(user))
 });
 
