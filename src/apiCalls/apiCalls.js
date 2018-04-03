@@ -1,14 +1,3 @@
-export const getFavorites = async userId => {
-  const url = `api/users/${userId}/favorites`;
-  try {
-    const response = await fetch(url);
-    const favorites = await response.json();
-    return favorites.data;
-  } catch (error) {
-    throw new Error('Error getting favorites');
-  }
-};
-
 export const addToFavoritesDb = async (movieData, userId) => {
   const favoriteData = {...movieData, user_id: userId};
   const url = 'api/users/favorites/new';

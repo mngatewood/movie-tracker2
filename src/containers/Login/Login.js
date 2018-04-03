@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { userLogin } from '../../apiCalls/userLogin';
-import { getFavorites } from '../../apiCalls/apiCalls';
+import { getFavorites } from '../../apiCalls/getFavorites';
 import { validateUser, setError, addFavorites } from '../../actions';
 import './Login.css';
 import { connect } from 'react-redux';

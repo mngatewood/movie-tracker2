@@ -1,5 +1,5 @@
-import { mockSignupApiResponse } from '../../mockData';
+import { mockSignupDbResponse } from '../../mockData/mockData';
 
 export const userLogin = jest.fn().mockImplementation(() => {
-  return Promise.resolve({ mockSignupApiResponse });
+  return Promise.resolve({ mockSignupDbResponse });
 });

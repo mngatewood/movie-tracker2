@@ -61,9 +61,22 @@ export const mockGetMoviesApiData = [
   }
 ];
 
-export const mockSignupApiResponse = {
+export const mockSignupDbResponse = {
   id: 31,
   message: "New user created",
   status: "success"
 };
+
+export const mockGetFavoritesDbResponse = [
+  {
+    id: 64,
+    movie_id: 354912,
+    overview: "Despite his family’s baffling generations-old ban on music",
+    poster_path: "/eKi8dIrr8voobbaGzDpe8w0PVbC.jpg",
+    release_date: "2017-10-27",
+    title: "Coco",
+    user_id: 1,
+    vote_average: "7.8"
+  }
+];
 
