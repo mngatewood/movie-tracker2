@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Signup.css';
-import { userSignup } from '../../apiCalls/apiCalls';
+import { userSignup } from '../../apiCalls/userSignup';
 import { validateUser } from '../../actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';

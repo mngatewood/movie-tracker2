@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { Route, withRouter } from 'react-router-dom';
 import CardContainer from '../CardContainer/CardContainer';
-import { getMovies, url } from '../../apiCalls/apiCalls';
+import { getMovies } from '../../apiCalls/getMovies';
 import { addMovies } from '../../actions';
 import { connect } from 'react-redux';
 import Header from '../Header/Header';
