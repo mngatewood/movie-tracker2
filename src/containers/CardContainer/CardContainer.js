@@ -32,7 +32,7 @@ export const CardContainer = ({movies, favorites}) => {
   );
 };
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   movies: state.movies,
   favorites: state.favorites
 });

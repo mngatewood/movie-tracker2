@@ -22,7 +22,7 @@ export const Favorites = ({favorites}) => {
   );
 };
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   favorites: state.favorites
 });
 

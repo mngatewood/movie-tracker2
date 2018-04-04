@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+
 export const addMovies = (movies) => ({
   type: 'ADD_MOVIES',
   movies

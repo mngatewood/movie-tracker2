@@ -17,7 +17,7 @@ export class Header extends Component {
   };
 
   render() {
-    const { user, error } = this.props
+    const { user, error } = this.props;
     return <div className="header">
       <h1>Movie Tracker</h1>
       { user.name ? 
@@ -43,12 +43,12 @@ export class Header extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   user: state.user,
   error: state.error
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   logOut: () => dispatch(logOut()),
   resetFavorites: () => dispatch(resetFavorites())
 });

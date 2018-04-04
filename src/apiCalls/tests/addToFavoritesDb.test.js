@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+
 import { addToFavoritesDb } from '../addToFavoritesDb';
 
 describe("addToFavoritesDb", () => {
@@ -10,7 +12,7 @@ describe("addToFavoritesDb", () => {
       user_id: 1
     };
 
-    const mockUserId = 1;
+    mockUserId = 1;
 
     window.fetch = jest.fn().mockImplementation(() =>
       Promise.resolve({

@@ -8,7 +8,7 @@ describe("removeFromFavoritesDb", () => {
   beforeEach(() => {
     const mockMovieId = 140654;
     const mockUserId = 1;
-    const mockFavoriteId = { mockMovieId, mockUserId };
+    mockFavoriteId = { mockMovieId, mockUserId };
 
     window.fetch = jest.fn().mockImplementation(() =>
       Promise.resolve({
