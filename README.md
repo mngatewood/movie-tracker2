@@ -1,10 +1,10 @@
-# Movie Tracker
+# My Movie Tracker
 
-obligatory screen shot 
+[Screenshot](https://raw.githubusercontent.com/amy-r/movie-tracker2/master/src/assets/MyMovieTracker.png)
 
 ## Synopsis
 
-Movie Tracker is an application that allows users to view information (title, overview, average rating) on the latest movie releases.  Users may create an account in order to save and view favorite movies.  The app fetches movie data from The Movie Database API and user data is stored on a backend server using postgreSQL.
+My Movie Tracker is an application that allows users to view information (title, overview, average rating) on the latest movie releases.  Users may create an account in order to save and view favorite movies.  The app fetches movie data from The Movie Database API and user data is stored on a backend server using postgreSQL.
 
 ## Built With
 * React

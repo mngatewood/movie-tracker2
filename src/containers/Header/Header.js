@@ -19,7 +19,7 @@ export class Header extends Component {
       <div className="title">
         <img className="film-reel" src={filmReel} alt="film reel icon" />
         <h1>
-          <span className="sub-title">MY</span> M &nbsp; VIE 
+          <span className="sub-title">MY</span>&nbsp;M &nbsp; VIE&nbsp;
           <span className="sub-title">TRACKER</span></h1>
       </div>
       { user.name ? 
