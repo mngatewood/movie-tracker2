@@ -1,6 +1,6 @@
 # My Movie Tracker
 
-[Screenshot](https://raw.githubusercontent.com/amy-r/movie-tracker2/master/src/assets/MyMovieTracker.png)
+![Screenshot](https://raw.githubusercontent.com/amy-r/movie-tracker2/master/src/assets/MyMovieTracker.png)
 
 ## Synopsis
 
