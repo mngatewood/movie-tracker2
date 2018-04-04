@@ -11,9 +11,6 @@ export class Header extends Component {
   handleClick = () => {
     this.props.logOut();
     this.props.resetFavorites();
-    const alertLogOut = "You have successfully logged out.  ";
-    const alertRedirect = "Click OK to return to the login page.";
-    alert(alertLogOut + alertRedirect);
   };
 
   render() {
