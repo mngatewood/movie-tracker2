@@ -6,7 +6,7 @@ import { setError, addFavoriteToStore, removeFavoriteFromStore } from '../../act
 import { removeFromFavoritesDb } from '../../apiCalls/removeFromFavoritesDb';
 import { addToFavoritesDb } from '../../apiCalls/addToFavoritesDb';
 import PropTypes from 'prop-types';
-import favSelected from '../../assets/fav-selected.png'
+import favSelected from '../../assets/fav-selected.png';
 
 export class Card extends Component {
   constructor(props) {
