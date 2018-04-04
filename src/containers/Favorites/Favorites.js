@@ -1,5 +1,4 @@
 import React from 'react';
-import './Favorites.css';
 import { connect } from 'react-redux';
 import Card from '../Card/Card';
 import PropTypes from 'prop-types';

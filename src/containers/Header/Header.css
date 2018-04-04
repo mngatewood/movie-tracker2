@@ -4,16 +4,6 @@
   height: 100px;
   z-index: 97;
   background-color: #001021;
-  /* display: flex; */
-  /* justify-content: flex-start */
-}
-
-.movie-icon {
-  display: inline-block;
-  position: relative;
-  left: 0px;
-  height: 50px;
-  z-index: 0;
 }
 
 .film-reel {
@@ -34,11 +24,11 @@
 
 .sub-title {
   position: relative;
-  top: -5px;
+  top: -6px;
+  padding: 5px 2px 2px 2px;
   border-top: 1px solid #f5f5f5;
   border-bottom: 1px solid #f5f5f5;
   font-size: 14px;
-  padding: 5px 2px 2px 2px;
 }
 
 .welcome {
@@ -54,33 +44,32 @@ h5 {
 .nav {
   display: flex;
   justify-content: center;
-  background-color: #034748;
-  /* position: absolute; */
   width: 100vw;
-  /* right: 10px; */
-  z-index: 98;;
+  background-color: #034748;
+  z-index: 98;
 }
 
 .nav-link-wrapper {
   display: inline-block;
-  height: 18px;
-  /* width: 100px; */
   padding: 10px 20px;
-  /* margin: 25px; */
-  /* border: 1px solid black; */
+  height: 18px;
   background-color: #034748;
 }
 
 a {
+  padding: 5px;
   color: #f5f5f5;
   background-color:#034748;
-  padding: 5px;
   text-decoration: none;
+}
+
+a:hover {
+  color: #001021;
+  text-decoration: underline;
 }
 
 .active {
   color: #11B5E4;
-  /* background-color: #1481BA; */
 }
 
 @media screen and (max-width: 640px){
@@ -90,11 +79,14 @@ a {
     margin-top: 36px;
   }
 
+  .sub-title {
+    top: -3px;
+  }
+
   .film-reel {
     left: 79px;
     height: 22px;
-}
-
+  }
 
   .welcome {
     font-size: 12px;
@@ -114,10 +106,8 @@ a {
   }
 
   form {
-  margin: auto;
-  width: 90%;
+    width: 90%;
+    margin: auto;
+  }
+
 }
-
-
-}
-

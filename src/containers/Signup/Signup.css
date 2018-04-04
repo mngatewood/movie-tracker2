@@ -1,8 +1,8 @@
 .signup {
-  width: 500px;
-  height: 320px;
   padding: 30px;
   margin: 160px auto 0 auto;
+  width: 500px;
+  height: 320px;
   background-color: #1481BA;
 }
 
@@ -21,8 +21,8 @@ input {
 @media screen and (max-width: 720px){
 
   .signup {
-    width: 90%;
     padding: 10px;
+    width: 90%;
   }
 
 }
@@ -34,4 +34,3 @@ input {
   }
 
 }
-
