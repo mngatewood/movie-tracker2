@@ -44,6 +44,7 @@ describe('Signup', () => {
     };
     wrapper.setState({ email: 'me@gmail.com'});
     wrapper.instance().handleSubmit(event);
+    //eslint-disable-next-line
     expect(wrapper.instance().validateEmail).toHaveBeenCalledWith(mockState.email);
   });
 
@@ -51,7 +52,7 @@ describe('Signup', () => {
     expect(wrapper.instance().validateEmail('me@gmail.com')).toEqual(true);
     expect(wrapper.instance().validateEmail('megmail.com')).toEqual(false);
     expect(wrapper.instance().validateEmail('megmailcom')).toEqual(false);
-  })
+  });
 
   it('calls userSignup on handleSubmit when email address is valid', () => {
     wrapper.setState({
@@ -101,7 +102,11 @@ describe('Signup', () => {
       password: "password",
       errorMessage: ""
     });
-    const mockResponse = { error: "Key (email)=(tman2272@aol.com) already exists."};
+    
+    //eslint-disable-next-line
+    const mockResponse = { 
+      error: "Key (email)=(tman2272@aol.com) already exists."
+    };
     const expected = "Email address has already been used.";
     wrapper.instance().handleSubmit(event);
     expect(wrapper.state('errorMessage')).toEqual(expected);
@@ -155,9 +160,9 @@ describe('Signup', () => {
     expect(wrapper.state()).toEqual(expected);
   });
 
-
+  //eslint-disable-next-line
   it.skip('updates state with an error message when credentials dont match', () => {
-    const expected = "Email and password do not match."
+    const expected = "Email and password do not match.";
     //mock throw error
     expect(wrapper.state('errorMessage').toEqual(expected));
   });

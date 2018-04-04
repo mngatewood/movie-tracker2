@@ -65,7 +65,10 @@ export class Signup extends Component {
       this.state.password;
     return <div>
       <h2>Sign Up</h2>
-      <h4>Please enter your name, email address, and password to create an account.</h4>
+      <h4>
+        Please enter your name, email address, and 
+        password to create an account.
+      </h4>
       <form onSubmit={this.handleSubmit}>
         <input 
           type="text" 

@@ -1,7 +1,13 @@
+/* eslint-disable camelcase */
+
 import './Card.css';
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { setError, addFavoriteToStore, removeFavoriteFromStore } from '../../actions';
+import { 
+  setError, 
+  addFavoriteToStore, 
+  removeFavoriteFromStore 
+} from '../../actions';
 import { removeFromFavoritesDb } from '../../apiCalls/removeFromFavoritesDb';
 import { addToFavoritesDb } from '../../apiCalls/addToFavoritesDb';
 import PropTypes from 'prop-types';
@@ -81,7 +87,8 @@ export const mapStateToProps = state => ({
 export const mapDispatchToProps = dispatch => ({
   setError: error => dispatch(setError(error)),
   addFavoriteToStore: favorite => dispatch(addFavoriteToStore(favorite)),
-  removeFavoriteFromStore: movie_id => dispatch(removeFavoriteFromStore(movie_id))
+  removeFavoriteFromStore: movie_id => 
+    dispatch(removeFavoriteFromStore(movie_id))
 });
 
 Card.propTypes = {

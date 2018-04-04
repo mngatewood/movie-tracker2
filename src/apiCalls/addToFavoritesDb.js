@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+
 export const addToFavoritesDb = async (movieData, userId) => {
   const favoriteData = { ...movieData, user_id: userId };
   const url = "api/users/favorites/new";

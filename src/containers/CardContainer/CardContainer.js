@@ -40,7 +40,8 @@ export const mapStateToProps = state => ({
 
 CardContainer.propTypes = {
   movies: PropTypes.array,
-  favorites: PropTypes.array
+  favorites: PropTypes.array,
+  error: PropTypes.string
 };
 
 export default connect(mapStateToProps)(CardContainer);

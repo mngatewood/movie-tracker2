@@ -22,18 +22,30 @@ export class Header extends Component {
           <div className="welcome">
             <h3>Welcome { user.name }</h3>
           </div>
-          <div className="nav-link-wrapper"><NavLink exact to="/">Movies</NavLink></div>
-          <div className="nav-link-wrapper"><NavLink to="/login" onClick={this.handleClick}>Logout</NavLink></div>
-          <div className="nav-link-wrapper"><NavLink to="/favorites">Favorites</NavLink></div>
+          <div className="nav-link-wrapper">
+            <NavLink exact to="/">Movies</NavLink>
+          </div>
+          <div className="nav-link-wrapper">
+            <NavLink to="/login" onClick={this.handleClick}>Logout</NavLink>
+          </div>
+          <div className="nav-link-wrapper">
+            <NavLink to="/favorites">Favorites</NavLink>
+          </div>
         </div> 
         : 
         <div className="nav">
           <div className="welcome">
             <h3>You are logged out.</h3>
           </div>
-          <div className="nav-link-wrapper"><NavLink exact to="/">Movies</NavLink></div>
-          <div className="nav-link-wrapper"><NavLink to="/login">Login</NavLink></div>
-          <div className="nav-link-wrapper"><NavLink to="/signup">Sign Up</NavLink></div>
+          <div className="nav-link-wrapper">
+            <NavLink exact to="/">Movies</NavLink>
+          </div>
+          <div className="nav-link-wrapper">
+            <NavLink to="/login">Login</NavLink>
+          </div>
+          <div className="nav-link-wrapper">
+            <NavLink to="/signup">Sign Up</NavLink>
+          </div>
         </div>}
       <h2>{error}</h2>
     </div>;
