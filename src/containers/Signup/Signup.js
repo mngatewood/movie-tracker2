@@ -70,19 +70,19 @@ export class Signup extends Component {
           type="text" 
           name="name" 
           value={this.state.name} 
-          placeholder="Enter your name." 
+          placeholder="Name" 
           onChange={this.handleChange} />
         <input 
           type="text" 
           name="email" 
           value={this.state.email} 
-          placeholder="Enter your email address." 
+          placeholder="Email address" 
           onChange={this.handleChange} />
         <input 
           type="password" 
           name="password" 
           value={this.state.password} 
-          placeholder="Enter your password" 
+          placeholder="Password" 
           onChange={this.handleChange} />
         <button 
           type="submit" 
