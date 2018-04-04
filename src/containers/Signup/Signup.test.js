@@ -2,8 +2,10 @@ import React from 'react';
 import { Signup, mapDispatchToProps } from './Signup';
 import { shallow } from 'enzyme';
 import { userSignup } from '../../apiCalls/userSignup';
+import { userLogin } from '../../apiCalls/userLogin';
 
 jest.mock('../../apiCalls/userSignup');
+jest.mock('../../apiCalls/userLogin.js');
 
 describe('Signup', () => {
 
@@ -64,6 +66,23 @@ describe('Signup', () => {
     expect(userSignup).toHaveBeenCalledWith(wrapper.state());
   });
 
+  it('calls userLogin on handleSubmit when email address is valid', () => {
+    wrapper.setState({
+      name: "me",
+      email: "me@gmail.com",
+      password: "password",
+      errorMessage: ""
+    });
+
+    wrapper.instance().handleSubmit(event);
+    expect(userLogin).toHaveBeenCalledWith(wrapper.state());
+  });
+
+  it("calls validateUser on handleSubmit", () => {
+    wrapper.instance().handleSubmit(event);
+    expect(mockValidateUser).toHaveBeenCalled();
+  });
+
   it('updates state with an error when email is invalid', () => {
     wrapper.setState({
       name: 'me',
@@ -72,18 +91,6 @@ describe('Signup', () => {
       errorMessage: ''
     });
     const expected = "Please enter a valid email address.";
-    wrapper.instance().handleSubmit(event);
-    expect(wrapper.state('errorMessage')).toEqual(expected);
-  });
-
-  it.skip('updates state with an error when email is a duplicate', () => {
-    wrapper.setState({
-      name: "me",
-      email: "tman2272@aol.com",
-      password: "password",
-      errorMessage: ""
-    });
-    const expected = "Email address has already been used.";
     wrapper.instance().handleSubmit(event);
     expect(wrapper.state('errorMessage')).toEqual(expected);
   });
@@ -134,13 +141,6 @@ describe('Signup', () => {
     wrapper.instance().handleChange(event2);
     wrapper.instance().handleChange(event3);
     expect(wrapper.state()).toEqual(expected);
-  });
-
-
-  it.skip('updates state with error message when un/pw dont match', () => {
-    const expected = "Email and password do not match.";
-    //mock throw error
-    expect(wrapper.state('errorMessage').toEqual(expected));
   });
 
   it('disables submit button unless both fields contain data', () => {

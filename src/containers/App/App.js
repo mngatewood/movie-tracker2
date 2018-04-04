@@ -12,10 +12,10 @@ import Favorites from '../Favorites/Favorites';
 import PropTypes from 'prop-types';
 import { movieCleaner } from '../../apiCalls/movieCleaner';
 
-
-class App extends Component {
-  constructor() {
-    super();
+export class App extends Component {
+  constructor(props) {
+    super(props);
+    
     this.state = {
       error: ''
     };
@@ -36,7 +36,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <Route exact path='/' render={() => <CardContainer 
-          error={this.state.error}/>} />
+          error={this.state.error} />} />
         <Route path='/login' render={() => <Login />} />
         <Route path='/signup' render={() => <Signup />} />
         <Route path='/favorites' render={() => <Favorites />} />
@@ -48,7 +48,6 @@ class App extends Component {
 export const mapDispatchToProps = dispatch => ({
   addMovies: (movies) => dispatch(addMovies(movies))
 });
-
 
 App.propTypes = {
   addMovies: PropTypes.func

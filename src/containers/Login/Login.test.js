@@ -33,7 +33,6 @@ describe('Login', () => {
     expect(wrapper.state('password')).toEqual('');
   });
 
-
   it('updates the state as the user types', () => {
     const expected = {
       email: 'me@gmail.com',
@@ -88,18 +87,6 @@ describe('Login', () => {
     expect(mockAddFavorites).toHaveBeenCalled();
   });
 
-  it.skip('displays an error message when credentials dont match', () => {
-    const expected = "Email and password do not match.";
-    const event = { preventDefault: jest.fn() };
-    window.fetch = jest.fn().mockImplementation(() =>
-      Promise.reject({
-        ok: false
-      })
-    );
-    wrapper.instance().handleSubmit(event);
-    expect(wrapper.state('errorMessage')).toEqual(expected);
-  });
-
   it('disables submit button unless both fields contain data', () => {
     expect(wrapper.find('button').prop('disabled')).toBe(true);
     wrapper.setState({ email: 'me@gmail.com', password: ''});
@@ -116,6 +103,4 @@ describe('Login', () => {
     mapped.validateUser();
     expect(mockDispatch).toHaveBeenCalled();
   });
-
-
 });

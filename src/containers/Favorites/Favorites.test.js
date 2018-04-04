@@ -1,5 +1,4 @@
 /* eslint-disable camelcase */
-
 import React from 'react';
 import { Favorites, mapStateToProps } from './Favorites';
 import { shallow } from 'enzyme';

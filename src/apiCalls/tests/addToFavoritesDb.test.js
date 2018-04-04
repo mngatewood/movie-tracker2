@@ -1,5 +1,4 @@
 /* eslint-disable camelcase */
-
 import { addToFavoritesDb } from '../addToFavoritesDb';
 
 describe("addToFavoritesDb", () => {

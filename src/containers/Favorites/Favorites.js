@@ -1,5 +1,4 @@
 import React from 'react';
-import './Favorites.css';
 import { connect } from 'react-redux';
 import Card from '../Card/Card';
 import PropTypes from 'prop-types';
@@ -10,6 +9,7 @@ export const Favorites = ({favorites}) => {
       movie={favorite}
       isFavorite={true}/>;
   });
+
   return (
     <div>
       <div className="favorites">
@@ -25,8 +25,9 @@ export const mapStateToProps = state => ({
   favorites: state.favorites
 });
 
-export default connect(mapStateToProps)(Favorites);
-
 Favorites.propTypes = {
   favorites: PropTypes.array
 };
+
+export default connect(mapStateToProps)(Favorites);
+

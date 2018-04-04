@@ -1,5 +1,4 @@
 /* eslint-disable id-blacklist */
-
 import { userLogin } from '../userLogin';
 
 describe("userLogin", () => {
