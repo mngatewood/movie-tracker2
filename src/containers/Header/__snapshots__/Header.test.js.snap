@@ -38,7 +38,7 @@ ShallowWrapper {
                     >
                               MY
                     </span>
-                     M   VIE
+                     M   VIE 
                     <span
                               className="sub-title"
                     >
@@ -116,7 +116,7 @@ ShallowWrapper {
               >
                             MY
               </span>
-               M   VIE
+               M   VIE 
               <span
                             className="sub-title"
               >
@@ -152,7 +152,7 @@ ShallowWrapper {
 >
                   MY
 </span>,
-                " M   VIE",
+                " M   VIE ",
                 <span
                   className="sub-title"
 >
@@ -174,7 +174,7 @@ ShallowWrapper {
                 "rendered": "MY",
                 "type": "span",
               },
-              " M   VIE",
+              " M   VIE ",
               Object {
                 "instance": null,
                 "key": undefined,
@@ -413,7 +413,7 @@ ShallowWrapper {
                         >
                                     MY
                         </span>
-                         M   VIE
+                         M   VIE 
                         <span
                                     className="sub-title"
                         >
@@ -491,7 +491,7 @@ ShallowWrapper {
                 >
                                 MY
                 </span>
-                 M   VIE
+                 M   VIE 
                 <span
                                 className="sub-title"
                 >
@@ -527,7 +527,7 @@ ShallowWrapper {
 >
                     MY
 </span>,
-                  " M   VIE",
+                  " M   VIE ",
                   <span
                     className="sub-title"
 >
@@ -549,7 +549,7 @@ ShallowWrapper {
                   "rendered": "MY",
                   "type": "span",
                 },
-                " M   VIE",
+                " M   VIE ",
                 Object {
                   "instance": null,
                   "key": undefined,
@@ -812,7 +812,7 @@ ShallowWrapper {
                     >
                               MY
                     </span>
-                     M   VIE
+                     M   VIE 
                     <span
                               className="sub-title"
                     >
@@ -888,7 +888,7 @@ ShallowWrapper {
               >
                             MY
               </span>
-               M   VIE
+               M   VIE 
               <span
                             className="sub-title"
               >
@@ -924,7 +924,7 @@ ShallowWrapper {
 >
                   MY
 </span>,
-                " M   VIE",
+                " M   VIE ",
                 <span
                   className="sub-title"
 >
@@ -946,7 +946,7 @@ ShallowWrapper {
                 "rendered": "MY",
                 "type": "span",
               },
-              " M   VIE",
+              " M   VIE ",
               Object {
                 "instance": null,
                 "key": undefined,
@@ -1174,7 +1174,7 @@ ShallowWrapper {
                         >
                                     MY
                         </span>
-                         M   VIE
+                         M   VIE 
                         <span
                                     className="sub-title"
                         >
@@ -1250,7 +1250,7 @@ ShallowWrapper {
                 >
                                 MY
                 </span>
-                 M   VIE
+                 M   VIE 
                 <span
                                 className="sub-title"
                 >
@@ -1286,7 +1286,7 @@ ShallowWrapper {
 >
                     MY
 </span>,
-                  " M   VIE",
+                  " M   VIE ",
                   <span
                     className="sub-title"
 >
@@ -1308,7 +1308,7 @@ ShallowWrapper {
                   "rendered": "MY",
                   "type": "span",
                 },
-                " M   VIE",
+                " M   VIE ",
                 Object {
                   "instance": null,
                   "key": undefined,

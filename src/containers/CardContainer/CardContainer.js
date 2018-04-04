@@ -27,7 +27,9 @@ export const CardContainer = ({movies, favorites, error}) => {
       <div className="card-container">
         {displayCards}
       </div>
-      {error && <h1 className="fetch-error"> Error fetching movies. Please try again later. </h1>}
+      {error && <h1 className="fetch-error">
+        Error fetching movies. Please try again later.
+      </h1>}
     </div>
   );
 };
