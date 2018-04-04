@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Card from '../Card/Card';
 import PropTypes from 'prop-types';
 
-export const CardContainer = ({movies, favorites}) => {
+export const CardContainer = ({movies, favorites, error}) => {
   let displayCards;
 
   if (movies) {
@@ -28,6 +28,7 @@ export const CardContainer = ({movies, favorites}) => {
       <div className="card-container">
         {displayCards}
       </div>
+      {error && <h1> Error fetching movies. Please try again later. </h1>}
     </div>
   );
 };
