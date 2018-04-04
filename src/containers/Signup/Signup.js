@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Signup.css';
 import { userSignup } from '../../apiCalls/userSignup';
+import { userLogin } from '../../apiCalls/userLogin';
 import { validateUser } from '../../actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -33,10 +34,9 @@ export class Signup extends Component {
         if (signUpFetch.error) {
           throw new Error("Error");
         } else {
-          const success = "You have successfully created an account.  ";
-          const redirect = "You will now be redirected to the login page.";
-          alert(success + redirect);
-          this.props.history.push("/login");
+          const user = await userLogin(this.state);
+          this.props.validateUser(user);
+          this.props.history.push("/");
         }
       } catch (error) {
         errorMessage = "Email address has already been used.";
