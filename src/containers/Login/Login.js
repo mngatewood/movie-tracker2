@@ -41,7 +41,7 @@ export class Login extends Component {
   render() {
     const enableSubmit = this.state.email && this.state.password; 
     return (
-      <div>
+      <div className="login">
         <h4>Please enter your email address and password to login.</h4>
         <form onSubmit={this.handleSubmit}>
           <input 
