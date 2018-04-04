@@ -1,5 +1,6 @@
 import './Card.css';
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import { setError, addFavoriteToStore, removeFavoriteFromStore } from '../../actions';
 import { removeFromFavoritesDb } from '../../apiCalls/removeFromFavoritesDb';
@@ -63,12 +64,11 @@ export class Card extends Component {
           </div>
         </div>
         <img className="addFavoriteIcon" onClick={this.handleClick} src={favSelected} alt="add to favorites button" />
- {/*}       <button onClick={this.handleClick}>Favorite</button> */}
         <div className={"addFaveError"} hidden={favErrorHidden}>
           <p>You must</p>
-          <h4><a href="/login">Log In</a></h4>
+          <h4><Link to="/login">Login</Link></h4>
           <p>or</p>
-          <h4><a href="/signup">Sign Up</a></h4>
+          <h4><Link to="/signup">Sign Up</Link></h4>
           <p>before adding favorites.</p>
         </div>
       </div>
