@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 import React from 'react';
 import { Card, mapStateToProps, mapDispatchToProps } from "./Card";
 import { shallow } from 'enzyme';

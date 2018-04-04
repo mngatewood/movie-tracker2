@@ -3,9 +3,11 @@ import './Card.css';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
-import { setError, 
+import { 
+  setError, 
   addFavoriteToStore, 
-  removeFavoriteFromStore } from '../../actions';
+  removeFavoriteFromStore 
+} from '../../actions';
 import { removeFromFavoritesDb } from '../../apiCalls/removeFromFavoritesDb';
 import { addToFavoritesDb } from '../../apiCalls/addToFavoritesDb';
 import PropTypes from 'prop-types';
