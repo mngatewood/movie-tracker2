@@ -36,29 +36,11 @@ export class Header extends Component {
           <div className="nav-link-wrapper">
             <NavLink to="/favorites">Favorites</NavLink>
           </div>
-          <div className="nav-link-wrapper">
-            <NavLink exact to="/">Movies</NavLink>
-          </div>
-          <div className="nav-link-wrapper">
-            <NavLink to="/login" onClick={this.handleClick}>Logout</NavLink>
-          </div>
-          <div className="nav-link-wrapper">
-            <NavLink to="/favorites">Favorites</NavLink>
-          </div>
         </div> 
         : 
         <div className="nav">
           <div className="welcome">
             <h5>You are logged out.</h5>
-          </div>
-          <div className="nav-link-wrapper">
-            <NavLink exact to="/">Movies</NavLink>
-          </div>
-          <div className="nav-link-wrapper">
-            <NavLink to="/login">Login</NavLink>
-          </div>
-          <div className="nav-link-wrapper">
-            <NavLink to="/signup">Sign Up</NavLink>
           </div>
           <div className="nav-link-wrapper">
             <NavLink exact to="/">Movies</NavLink>

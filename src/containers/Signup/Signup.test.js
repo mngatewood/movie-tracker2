@@ -45,12 +45,8 @@ describe('Signup', () => {
     const validation = wrapper.instance().validateEmail;
     wrapper.setState({ email: 'me@gmail.com'});
     wrapper.instance().handleSubmit(event);
-<<<<<<< HEAD
-    expect(validation).toHaveBeenCalledWith(mockState.email);
-=======
     //eslint-disable-next-line
     expect(wrapper.instance().validateEmail).toHaveBeenCalledWith(mockState.email);
->>>>>>> Adds fixes to lint errors
   });
 
   it('validates the email address input', () => {
