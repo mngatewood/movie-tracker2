@@ -1,5 +1,3 @@
-/* eslint-disable camelcase */
-
 export const addToFavoritesDb = async (movieData, userId) => {
   // eslint-disable-next-line
   const favoriteData = { ...movieData, user_id: userId };

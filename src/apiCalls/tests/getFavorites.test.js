@@ -1,5 +1,4 @@
 /* eslint-disable camelcase */
-
 import { getFavorites } from '../getFavorites';
 
 describe("getFavorites", () => {

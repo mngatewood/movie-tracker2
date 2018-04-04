@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-
 import React from 'react';
 import { Card, mapStateToProps, mapDispatchToProps } from "./Card";
 import { shallow } from 'enzyme';
@@ -55,14 +53,14 @@ describe('Card', () => {
   });
 
   it('calls removeFavesFromDb and FromStore on removeFaves w/params', () => {
+    const movieId = mockMovieData.movie_id;
     wrapper = shallow(<Card movie={mockMovieData} 
       user={mockUser} 
       isFavorite={true} 
       removeFavoriteFromStore={mockRemoveFavoriteFromStore}/>);
     wrapper.instance().removeFavorite();
-    expect(removeFromFavoritesDb).toHaveBeenCalledWith(mockMovieData.movie_id,
-      mockUser.id);
-    expect(mockRemoveFavoriteFromStore).toHaveBeenCalledWith(mockMovieData.movie_id); 
+    expect(removeFromFavoritesDb).toHaveBeenCalledWith(movieId, mockUser.id);
+    expect(mockRemoveFavoriteFromStore).toHaveBeenCalledWith(movieId); 
   });
 
   it('calls favoriteError on handleClick', () => {

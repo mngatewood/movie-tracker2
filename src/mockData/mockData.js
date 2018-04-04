@@ -1,5 +1,4 @@
 /* eslint-disable camelcase */
-
 export const mockMovieArrayData = [
   {
     movie_id: 284054,

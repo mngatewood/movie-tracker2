@@ -45,8 +45,7 @@ describe('Signup', () => {
     const validation = wrapper.instance().validateEmail;
     wrapper.setState({ email: 'me@gmail.com'});
     wrapper.instance().handleSubmit(event);
-    //eslint-disable-next-line
-    expect(wrapper.instance().validateEmail).toHaveBeenCalledWith(mockState.email);
+    expect(validation).toHaveBeenCalledWith(mockState.email);
   });
 
   it('validates the email address input', () => {
@@ -92,23 +91,6 @@ describe('Signup', () => {
       errorMessage: ''
     });
     const expected = "Please enter a valid email address.";
-    wrapper.instance().handleSubmit(event);
-    expect(wrapper.state('errorMessage')).toEqual(expected);
-  });
-
-  it.skip('updates state with an error when email is a duplicate', () => {
-    wrapper.setState({
-      name: "me",
-      email: "tman2272@aol.com",
-      password: "password",
-      errorMessage: ""
-    });
-    
-    //eslint-disable-next-line
-    const mockResponse = { 
-      error: "Key (email)=(tman2272@aol.com) already exists."
-    };
-    const expected = "Email address has already been used.";
     wrapper.instance().handleSubmit(event);
     expect(wrapper.state('errorMessage')).toEqual(expected);
   });
@@ -159,18 +141,6 @@ describe('Signup', () => {
     wrapper.instance().handleChange(event2);
     wrapper.instance().handleChange(event3);
     expect(wrapper.state()).toEqual(expected);
-  });
-
-<<<<<<< HEAD
-
-  it.skip('updates state with error message when un/pw dont match', () => {
-=======
-  //eslint-disable-next-line
-  it.skip('updates state with an error message when credentials dont match', () => {
->>>>>>> Adds fixes to lint errors
-    const expected = "Email and password do not match.";
-    //mock throw error
-    expect(wrapper.state('errorMessage').toEqual(expected));
   });
 
   it('disables submit button unless both fields contain data', () => {

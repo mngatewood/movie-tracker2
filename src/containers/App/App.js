@@ -12,10 +12,10 @@ import Favorites from '../Favorites/Favorites';
 import PropTypes from 'prop-types';
 import { movieCleaner } from '../../apiCalls/movieCleaner';
 
-
 export class App extends Component {
   constructor(props) {
     super(props);
+    
     this.state = {
       error: ''
     };
@@ -48,7 +48,6 @@ export class App extends Component {
 export const mapDispatchToProps = dispatch => ({
   addMovies: (movies) => dispatch(addMovies(movies))
 });
-
 
 App.propTypes = {
   addMovies: PropTypes.func

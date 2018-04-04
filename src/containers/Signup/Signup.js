@@ -101,9 +101,10 @@ export const mapDispatchToProps = dispatch => ({
   validateUser: user => dispatch(validateUser(user))
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(Signup));
-
 Signup.propTypes = {
   validateUser: PropTypes.func,
   history: PropTypes.object
 };
+
+export default withRouter(connect(null, mapDispatchToProps)(Signup));
+
