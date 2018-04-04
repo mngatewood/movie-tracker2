@@ -20,7 +20,7 @@ export class Header extends Component {
       { user.name ? 
         <div className="nav">
           <div className="welcome">
-            <h3>Welcome { user.name }</h3>
+            <h5>Welcome { user.name }</h5>
           </div>
           <div className="nav-link-wrapper"><NavLink exact to="/">Movies</NavLink></div>
           <div className="nav-link-wrapper"><NavLink to="/login" onClick={this.handleClick}>Logout</NavLink></div>
@@ -29,7 +29,7 @@ export class Header extends Component {
         : 
         <div className="nav">
           <div className="welcome">
-            <h3>You are logged out.</h3>
+            <h5>You are logged out.</h5>
           </div>
           <div className="nav-link-wrapper"><NavLink exact to="/">Movies</NavLink></div>
           <div className="nav-link-wrapper"><NavLink to="/login">Login</NavLink></div>
