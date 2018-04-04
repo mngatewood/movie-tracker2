@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { logOut, resetFavorites } from '../../actions';
 import './Header.css';
 import PropTypes from 'prop-types';
-import movieIcon from '../../assets/movie-icon.png';
 import filmReel from '../../assets/film-reel.svg';
 
 export class Header extends Component {
@@ -19,25 +18,39 @@ export class Header extends Component {
     return <div className="header">
       <div className="title">
         <img className="film-reel" src={filmReel} alt="film reel icon" />
-        <h1><span className="sub-title">MY</span> M &nbsp; VIE <span className="sub-title">TRACKER</span></h1>
+        <h1>
+          <span className="sub-title">MY</span> M &nbsp; VIE 
+          <span className="sub-title">TRACKER</span></h1>
       </div>
       { user.name ? 
         <div className="nav">
           <div className="welcome">
             <h5>Welcome { user.name }</h5>
           </div>
-          <div className="nav-link-wrapper"><NavLink exact to="/">Movies</NavLink></div>
-          <div className="nav-link-wrapper"><NavLink to="/login" onClick={this.handleClick}>Logout</NavLink></div>
-          <div className="nav-link-wrapper"><NavLink to="/favorites">Favorites</NavLink></div>
+          <div className="nav-link-wrapper">
+            <NavLink exact to="/">Movies</NavLink>
+          </div>
+          <div className="nav-link-wrapper">
+            <NavLink to="/login" onClick={this.handleClick}>Logout</NavLink>
+          </div>
+          <div className="nav-link-wrapper">
+            <NavLink to="/favorites">Favorites</NavLink>
+          </div>
         </div> 
         : 
         <div className="nav">
           <div className="welcome">
             <h5>You are logged out.</h5>
           </div>
-          <div className="nav-link-wrapper"><NavLink exact to="/">Movies</NavLink></div>
-          <div className="nav-link-wrapper"><NavLink to="/login">Login</NavLink></div>
-          <div className="nav-link-wrapper"><NavLink to="/signup">Sign Up</NavLink></div>
+          <div className="nav-link-wrapper">
+            <NavLink exact to="/">Movies</NavLink>
+          </div>
+          <div className="nav-link-wrapper">
+            <NavLink to="/login">Login</NavLink>
+          </div>
+          <div className="nav-link-wrapper">
+            <NavLink to="/signup">Sign Up</NavLink>
+          </div>
         </div>}
       <h2>{error}</h2>
     </div>;

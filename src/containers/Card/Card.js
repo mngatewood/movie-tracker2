@@ -1,8 +1,11 @@
+/* eslint-disable camelcase */
 import './Card.css';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux";
-import { setError, addFavoriteToStore, removeFavoriteFromStore } from '../../actions';
+import { setError, 
+  addFavoriteToStore, 
+  removeFavoriteFromStore } from '../../actions';
 import { removeFromFavoritesDb } from '../../apiCalls/removeFromFavoritesDb';
 import { addToFavoritesDb } from '../../apiCalls/addToFavoritesDb';
 import PropTypes from 'prop-types';
@@ -63,7 +66,10 @@ export class Card extends Component {
             <h4>Rating: {vote_average}</h4>
           </div>
         </div>
-        <img className="addFavoriteIcon" onClick={this.handleClick} src={favSelected} alt="add to favorites button" />
+        <img className="addFavoriteIcon" 
+          onClick={this.handleClick} 
+          src={favSelected} 
+          alt="add to favorites button" />
         <div className={"addFaveError"} hidden={favErrorHidden}>
           <p>You must</p>
           <h4><Link to="/login">Login</Link></h4>
@@ -83,7 +89,8 @@ export const mapStateToProps = state => ({
 export const mapDispatchToProps = dispatch => ({
   setError: error => dispatch(setError(error)),
   addFavoriteToStore: favorite => dispatch(addFavoriteToStore(favorite)),
-  removeFavoriteFromStore: movie_id => dispatch(removeFavoriteFromStore(movie_id))
+  removeFavoriteFromStore: movie_id => 
+    dispatch(removeFavoriteFromStore(movie_id))
 });
 
 Card.propTypes = {
