@@ -5,6 +5,7 @@ import { setError, addFavoriteToStore, removeFavoriteFromStore } from '../../act
 import { removeFromFavoritesDb } from '../../apiCalls/removeFromFavoritesDb';
 import { addToFavoritesDb } from '../../apiCalls/addToFavoritesDb';
 import PropTypes from 'prop-types';
+import favSelected from '../../assets/fav-selected.png'
 
 export class Card extends Component {
   constructor(props) {
@@ -61,7 +62,8 @@ export class Card extends Component {
             <h4>Rating: {vote_average}</h4>
           </div>
         </div>
-        <button onClick={this.handleClick}>Favorite</button>
+        <img className="addFavoriteIcon" onClick={this.handleClick} src={favSelected} alt="add to favorites button" />
+ {/*}       <button onClick={this.handleClick}>Favorite</button> */}
         <div className={"addFaveError"} hidden={favErrorHidden}>
           <p>You must</p>
           <h4><a href="/login">Log In</a></h4>
