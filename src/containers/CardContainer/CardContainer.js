@@ -24,7 +24,6 @@ export const CardContainer = ({movies, favorites, error}) => {
   }
   return (
     <div>
-      <h2>Movies</h2>
       <div className="card-container">
         {displayCards}
       </div>
