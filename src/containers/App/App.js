@@ -13,9 +13,9 @@ import PropTypes from 'prop-types';
 import { movieCleaner } from '../../apiCalls/movieCleaner';
 
 
-class App extends Component {
-  constructor() {
-    super();
+export class App extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
       error: ''
     };
