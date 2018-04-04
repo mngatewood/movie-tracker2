@@ -1,6 +1,8 @@
 import React from 'react';
 import App, { mapDispatchToProps } from './App';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
+import { getMovies } from '../../apiCalls/getMovies';
+
 
 describe("App", () => {
   it("should match the snapshot", () => {

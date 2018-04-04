@@ -14,18 +14,28 @@ import { movieCleaner } from '../../apiCalls/movieCleaner';
 
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      error: ''
+    }
+  }
 
   async componentDidMount() {
-    const movies = await getMovies();
-    const cleanMovies = movieCleaner(movies);
-    this.props.addMovies(cleanMovies);
+    try {
+      const movies = await getMovies();
+      const cleanMovies = movieCleaner(movies);
+      this.props.addMovies(cleanMovies);     
+    } catch (error) {
+      this.setState({error})
+    }
   }
 
   render() {
     return (
       <div className="App">
         <Header />
-        <Route exact path='/' render={() => <CardContainer />} />
+        <Route exact path='/' render={() => <CardContainer error={this.state.error}/>} />
         <Route path='/login' render={() => <Login />} />
         <Route path='/signup' render={() => <Signup />} />
         <Route path='/favorites' render={() => <Favorites />} />
