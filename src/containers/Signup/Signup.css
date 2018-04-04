@@ -9,3 +9,29 @@
 input {
   margin: 15px auto;
 }
+
+@media screen and (max-width: 860px){
+
+  .signup {
+    height: 340px;
+  }
+
+}
+
+@media screen and (max-width: 720px){
+
+  .signup {
+    width: 90%;
+    padding: 10px;
+  }
+
+}
+
+@media screen and (max-width: 500px){
+
+  .signup {
+    height: 350px;
+  }
+
+}
+

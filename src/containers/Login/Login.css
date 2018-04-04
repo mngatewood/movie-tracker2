@@ -41,3 +41,33 @@ form button {
 button:disabled {
   background-color: #11B5E4;
 }
+
+@media screen and (max-width: 720px){
+
+  .login {
+    width: 90%;
+    height: 280px;
+    padding: 10px;
+  }
+
+}
+
+@media screen and (max-width: 500px){
+
+  .login {
+    padding: 10px;
+  }
+  
+  input, form button {
+    width: 200px;
+    margin: 0 auto;
+  }
+
+  form {
+  margin: auto;
+  width: 90%;
+}
+
+
+}
+
