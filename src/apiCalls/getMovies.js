@@ -1,4 +1,4 @@
-import apiKey from "./apiKey";
+const apiKey = process.env.REACT_APP_MDB_API_KEY
 
 export const getMovies = async () => {
   const urlRoot = "https://api.themoviedb.org/3/movie/now_playing?";
