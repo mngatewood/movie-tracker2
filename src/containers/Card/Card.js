@@ -22,7 +22,7 @@ export class Card extends Component {
 
   favoriteError() {
     if (!this.props.user.id) {
-      this.setState({ favErrorHidden: false });
+      this.setState({ favErrorHidden: !this.state.favErrorHidden });
     }
   }
 
