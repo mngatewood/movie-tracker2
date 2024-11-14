@@ -4,6 +4,7 @@
   width: 220px;
   height: 350px;
   background-color: #1481BA;
+  border-radius: 12px;
 }
 
 .card img {
@@ -11,7 +12,8 @@
   top: 10px;
   width: 200px;
   height: 300px;
-  filter: drop-shadow(5px 5px 5px)
+  filter: drop-shadow(5px 5px 5px);
+  border-radius: 6px;
 }
 
 .card button {
@@ -56,6 +58,8 @@
 
 .movieDetails {
   opacity: 0;
+  border-radius: 6px;
+  transition: opacity 0.5s;
 }
 
 .movieDetails:hover {
@@ -70,12 +74,18 @@
   position: relative;
   top: 15px;
   margin-bottom: 15px;
+  padding: 0 5px;
 }
 
 .overview {
   top: 0;
   height: 240px;
+  padding: 0 10px;
   overflow: auto;
+}
+
+.overview p {
+  text-align: left;
 }
 
 .title h4 {
@@ -110,12 +120,88 @@ img.addFavoriteIcon {
 }
 
 img.addFavoriteIcon:hover {
-  top: -335px;
-  height: 50px;
-  width: 55px;
+  transform: scale(1.2);
 }
 
 img.addFavoriteIcon:hover .addFaveError {
   top: -680px;
   width: 202px;
+}
+
+@media screen and (max-width: 768px){
+
+  .card {
+    margin: 12px 12px;
+    width: 165px;
+    height: 263px;
+  }
+
+  .card img {
+    top: 5px;
+    width: 150px;
+    height: 225px;
+  }
+
+  .movieDetails {
+    border-radius: 3px;
+  }
+
+  .movieDetails {
+    top: -160px;
+    left: 5px;
+  }
+
+  .addFaveError {
+    top: -498px;
+    left: 7px;
+    width: 151px;
+    height: 214px;
+    padding-top: 10px;
+    border-radius: 5px;
+  }
+
+  .movieDetails {
+    top: -232px;
+    left: 5px;
+    width: 150px;
+    height: 225px;
+  }
+
+  .rating {
+    left: -12px;
+    bottom: -26px;
+    width: 120px;
+    font-size: 12px;
+  }
+
+  .title {
+    top: 8px;
+    margin-bottom: 8px;
+  }
+
+  .title h4 {
+    margin: 8px 0;
+    font-size: 12px;
+  }
+
+  .overview {
+    height: 184px;
+    padding: 0 6px;
+
+  }
+
+  .overview p {
+    margin: 4px 0;
+    font-size: 12px;
+  }
+
+  img.addFavoriteIcon {
+    top: -248px;
+    right: -48px;
+    height: 38px;
+    width: 38px;
+  }
+
+
+
 }

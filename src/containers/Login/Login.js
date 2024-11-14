@@ -6,6 +6,7 @@ import { validateUser, setError, addFavorites } from '../../actions';
 import './Login.css';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import filmReel from '../../assets/film-reel.svg';
 
 export class Login extends Component {
   constructor() {
@@ -30,6 +31,7 @@ export class Login extends Component {
       this.props.addFavorites(favorites);
       this.props.history.push('/');
     } catch (error) {
+      console.log("error", error);
       this.setState({
         email: "",
         password: "",
@@ -42,6 +44,11 @@ export class Login extends Component {
     const enableSubmit = this.state.email && this.state.password; 
     return (
       <div className="login">
+        <div className="icon-container">
+          <div className="reel-strip" />
+          <img className="film-reel-lg" src={filmReel} alt="film reel icon" />
+          <div className="reel-strip" />
+        </div>
         <h4>Please enter your email address and password to login.</h4>
         <form onSubmit={this.handleSubmit}>
           <input 

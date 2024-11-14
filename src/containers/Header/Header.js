@@ -15,45 +15,41 @@ export class Header extends Component {
 
   render() {
     const { user, error } = this.props;
-    return <div className="header">
-      <div className="title">
-        <img className="film-reel" src={filmReel} alt="film reel icon" />
-        <h1>
-          <span className="sub-title">MY</span>&nbsp;M &nbsp; VIE&nbsp;
-          <span className="sub-title">TRACKER</span></h1>
-      </div>
-      { user.name ? 
+    return (
+      <div className="header">
+        <div className="title">
+          <img className="film-reel" src={filmReel} alt="film reel icon" />
+          <h1>
+            <span className="sub-title">MY</span>&nbsp;M &nbsp; VIE&nbsp;
+            <span className="sub-title">TRACKER</span>
+          </h1>
+        </div>
+        <div className="welcome">
+          {user.name 
+            ? <h5>Welcome {user.name}</h5>
+            : <h5>You are logged out.</h5>
+          }
+        </div>
         <div className="nav">
-          <div className="welcome">
-            <h5>Welcome { user.name }</h5>
-          </div>
           <div className="nav-link-wrapper">
             <NavLink exact to="/">Movies</NavLink>
           </div>
           <div className="nav-link-wrapper">
-            <NavLink to="/login" onClick={this.handleClick}>Logout</NavLink>
+            {user.name 
+              ? <NavLink to="/login" onClick={this.handleClick}>Logout</NavLink>
+              : <NavLink to="/login">Login</NavLink>
+            }
           </div>
           <div className="nav-link-wrapper">
-            <NavLink to="/favorites">Favorites</NavLink>
+            {user.name 
+              ? <NavLink to="/favorites">Favorites</NavLink>
+              : <NavLink to="/signup">Sign Up</NavLink>
+            }
           </div>
         </div> 
-        : 
-        <div className="nav">
-          <div className="welcome">
-            <h5>You are logged out.</h5>
-          </div>
-          <div className="nav-link-wrapper">
-            <NavLink exact to="/">Movies</NavLink>
-          </div>
-          <div className="nav-link-wrapper">
-            <NavLink to="/login">Login</NavLink>
-          </div>
-          <div className="nav-link-wrapper">
-            <NavLink to="/signup">Sign Up</NavLink>
-          </div>
-        </div>}
-      <h2>{error}</h2>
-    </div>;
+        <h2>{error}</h2>
+      </div>
+    );
   }
 }
 

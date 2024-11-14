@@ -6,6 +6,7 @@ import { validateUser } from '../../actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import filmReel from '../../assets/film-reel.svg';
 
 export class Signup extends Component {
   constructor() {
@@ -63,37 +64,44 @@ export class Signup extends Component {
       this.state.name &&
       this.state.email &&
       this.state.password;
-    return <div className="signup">
-      <h4>Please enter your name, email address, <br />
-      and password to create an account.</h4>
-      <form onSubmit={this.handleSubmit}>
-        <input 
-          type="text" 
-          name="name" 
-          value={this.state.name} 
-          placeholder="Name" 
-          onChange={this.handleChange} />
-        <input 
-          type="text" 
-          name="email" 
-          value={this.state.email} 
-          placeholder="Email address" 
-          onChange={this.handleChange} />
-        <input 
-          type="password" 
-          name="password" 
-          value={this.state.password} 
-          placeholder="Password" 
-          onChange={this.handleChange} />
-        <button 
-          type="submit" 
-          name="submit"
-          disabled={!enableSubmit}>
-            Submit
-        </button>
-      </form>
-      <h2 className="errorMessage">{this.state.errorMessage}</h2>
-    </div>;
+    return (
+      <div className="signup">
+        <div className="icon-container">
+          <div className="reel-strip" />
+          <img className="film-reel-lg" src={filmReel} alt="film reel icon" />
+          <div className="reel-strip" />
+        </div>
+        <h4>Please enter your name, email address, <br />
+        and password to create an account.</h4>
+        <form onSubmit={this.handleSubmit}>
+          <input 
+            type="text" 
+            name="name" 
+            value={this.state.name} 
+            placeholder="Name" 
+            onChange={this.handleChange} />
+          <input 
+            type="text" 
+            name="email" 
+            value={this.state.email} 
+            placeholder="Email address" 
+            onChange={this.handleChange} />
+          <input 
+            type="password" 
+            name="password" 
+            value={this.state.password} 
+            placeholder="Password" 
+            onChange={this.handleChange} />
+          <button 
+            type="submit" 
+            name="submit"
+            disabled={!enableSubmit}>
+              Submit
+          </button>
+        </form>
+        <h2 className="errorMessage">{this.state.errorMessage}</h2>
+      </div>
+    );
   }
 }
 

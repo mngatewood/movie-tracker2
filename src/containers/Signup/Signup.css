@@ -1,16 +1,35 @@
 .signup {
   padding: 30px;
   margin: 160px auto 0 auto;
-  width: 500px;
-  height: 320px;
-  background-color: #1481BA;
+  width: 80%;
+  max-width: 500px;
+  background-color: rgba(8, 51, 68, 0.6);
+  border-radius: 12px;
 }
 
-input {
-  margin: 15px auto;
+.signup form {
+  height: 300px;
 }
 
-@media screen and (max-width: 860px){
+@media screen and (max-width: 768px){
+
+  .signup {
+    margin-top: 140px;
+  }
+
+}
+
+@media screen and (max-width: 640px){
+
+  .signup {
+    margin-top: 120px;
+  }
+
+}
+
+
+
+/* @media screen and (max-width: 860px){
 
   .signup {
     height: 340px;
@@ -33,4 +52,4 @@ input {
     height: 350px;
   }
 
-}
+} */
