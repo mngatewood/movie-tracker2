@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Signup.css';
 import { userSignup } from '../../apiCalls/userSignup';
-import { userLogin } from '../../apiCalls/userLogin';
 import { validateUser } from '../../actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -13,7 +12,7 @@ export class Signup extends Component {
     super();
 
     this.state = {
-      name: '',
+      username: '',
       email: '',
       password: '',
       errorMessage: ''
@@ -35,9 +34,7 @@ export class Signup extends Component {
         if (signUpFetch.error) {
           throw new Error("Error");
         } else {
-          const user = await userLogin(this.state);
-          this.props.validateUser(user);
-          this.props.history.push("/");
+          this.props.history.push("/login");
         }
       } catch (error) {
         errorMessage = "Email address has already been used.";
@@ -46,7 +43,7 @@ export class Signup extends Component {
       errorMessage = "Please enter a valid email address.";
     }
     this.setState({
-      name: "",
+      username: "",
       email: "",
       password: "",
       errorMessage: errorMessage
@@ -61,7 +58,7 @@ export class Signup extends Component {
 
   render() {
     const enableSubmit =
-      this.state.name &&
+      this.state.username &&
       this.state.email &&
       this.state.password;
     return (
@@ -76,7 +73,7 @@ export class Signup extends Component {
         <form onSubmit={this.handleSubmit}>
           <input 
             type="text" 
-            name="name" 
+            name="username" 
             value={this.state.name} 
             placeholder="Name" 
             onChange={this.handleChange} />
