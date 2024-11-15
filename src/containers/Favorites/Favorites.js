@@ -3,10 +3,12 @@ import { connect } from 'react-redux';
 import Card from '../Card/Card';
 import PropTypes from 'prop-types';
 
-export const Favorites = ({favorites}) => {
+export const Favorites = ({favorites, movies}) => {
   const displayFavorites = favorites.map(favorite => {
     return <Card key={favorite.movie_id} 
-      movie={favorite}
+      movie={movies.find(movie => {
+        return movie.movie_id === parseInt(favorite.movie_id, 10)
+      })}
       isFavorite={true}/>;
   });
 
@@ -22,11 +24,14 @@ export const Favorites = ({favorites}) => {
 };
 
 export const mapStateToProps = state => ({
-  favorites: state.favorites
+  favorites: state.favorites,
+  movies: state.movies
 });
 
 Favorites.propTypes = {
-  favorites: PropTypes.array
+  favorites: PropTypes.array,
+  movies: PropTypes.array
+
 };
 
 export default connect(mapStateToProps)(Favorites);
