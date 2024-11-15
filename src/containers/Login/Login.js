@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { userLogin } from '../../apiCalls/userLogin';
 import { getFavorites } from '../../apiCalls/getFavorites';
-import { validateUser, setError, addFavorites } from '../../actions';
+import { 
+  validateUser, 
+  setError, 
+  addFavorites, 
+  resetFavorites
+} from '../../actions';
 import './Login.css';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -27,8 +32,12 @@ export class Login extends Component {
     try {
       const userData = await userLogin(this.state);
       const favorites = await getFavorites(userData.data.user.id);
+      this.props.resetFavorites();
       this.props.addFavorites(favorites);
-      this.props.validateUser({ username: userData.data.user.username, id: userData.data.user.id });
+      this.props.validateUser({ 
+        username: userData.data.user.username, 
+        id: userData.data.user.id 
+      });
       this.props.history.push('/');
     } catch (error) {
       this.setState({
@@ -78,13 +87,15 @@ export class Login extends Component {
 export const mapDispatchToProps = dispatch => ({
   validateUser: user => dispatch(validateUser(user)),
   setError: error => dispatch(setError(error)),
-  addFavorites: favorites => dispatch(addFavorites(favorites))
+  addFavorites: favorites => dispatch(addFavorites(favorites)),
+  resetFavorites: () => dispatch(resetFavorites())
 });
 
 Login.propTypes = {
   validateUser: PropTypes.func,
   setError: PropTypes.func,
   addFavorites: PropTypes.func,
+  resetFavorites: PropTypes.func,
   history: PropTypes.object
 };
 
