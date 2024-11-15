@@ -16,14 +16,13 @@ export class Card extends Component {
     super(props);
 
     this.state = {
-      favErrorHidden: true
+      favErrorHidden: true,
+      isFavorite: window.location.pathname === '/favorites' 
+        ? true 
+        : this.props.favorites.some(
+          favorite => favorite.movie_id === this.props.movie.movie_id
+        )
     };
-  }
-
-  componentDidMount() {
-    if (this.props.movie.isFavorite) {
-      this.props.addFavoriteToStore(this.props.movie);
-    }
   }
 
   favoriteError() {
@@ -33,16 +32,18 @@ export class Card extends Component {
   }
 
   addFavorite() {
-    if (this.props.user.id && !this.props.isFavorite) {
+    if (this.props.user.id && !this.state.isFavorite) {
       addToFavoritesDb(this.props.movie.movie_id, this.props.user.id);
       this.props.addFavoriteToStore(this.props.movie);
+      this.setState({ isFavorite: true });
     } 
   }
 
   removeFavorite() {
-    if (this.props.user.id && this.props.isFavorite) {
+    if (this.props.user.id && this.state.isFavorite) {
       removeFromFavoritesDb(this.props.movie.movie_id, this.props.user.id);
       this.props.removeFavoriteFromStore(this.props.movie.movie_id);
+      this.setState({ isFavorite: false });
     }
   }
 
@@ -53,12 +54,18 @@ export class Card extends Component {
   };
 
   render() {
+    if (!this.props.movie) {
+      return (
+        <div className="lds-ring">
+          <div></div><div></div><div></div><div></div>
+        </div>
+      );
+    }
     const { title, overview, poster_path, vote_average } = this.props.movie;
-    const favorite = this.props.isFavorite ? 'favorite' : '';
     const { favErrorHidden } = this.state;
 
     return (
-      <div className={`card ${favorite}`}>
+      <div className={`card ${this.state.isFavorite && 'favorite'}`}>
         <img src={`https://image.tmdb.org/t/p/w200/${poster_path}`} 
           alt="movie poster" />
         <div className="movieDetails">
@@ -89,7 +96,8 @@ export class Card extends Component {
 }
 
 export const mapStateToProps = state => ({
-  user: state.user
+  user: state.user,
+  favorites: state.favorites
 });
 
 export const mapDispatchToProps = dispatch => ({
@@ -111,9 +119,8 @@ Card.propTypes = {
   user: PropTypes.object,
   setError: PropTypes.func,
   addFavoriteToStore: PropTypes.func,
-  isFavorite: PropTypes.bool,
   removeFavoriteFromStore: PropTypes.func,
-  movie_id: PropTypes.func,
+  favorites: PropTypes.array,
   history: PropTypes.object
 };
 
