@@ -20,6 +20,12 @@ export class Card extends Component {
     };
   }
 
+  componentDidMount() {
+    if (this.props.movie.isFavorite) {
+      this.props.addFavoriteToStore(this.props.movie);
+    }
+  }
+
   favoriteError() {
     if (!this.props.user.id) {
       this.setState({ favErrorHidden: !this.state.favErrorHidden });
@@ -28,7 +34,7 @@ export class Card extends Component {
 
   addFavorite() {
     if (this.props.user.id && !this.props.isFavorite) {
-      addToFavoritesDb(this.props.movie, this.props.user.id);
+      addToFavoritesDb(this.props.movie.movie_id, this.props.user.id);
       this.props.addFavoriteToStore(this.props.movie);
     } 
   }
@@ -99,14 +105,16 @@ Card.propTypes = {
     overview: PropTypes.string,
     poster_path: PropTypes.string,
     vote_average: PropTypes.num,
-    movie_id: PropTypes.num
+    movie_id: PropTypes.num,
+    isFavorite: PropTypes.bool
   }),
   user: PropTypes.object,
   setError: PropTypes.func,
   addFavoriteToStore: PropTypes.func,
   isFavorite: PropTypes.bool,
   removeFavoriteFromStore: PropTypes.func,
-  movie_id: PropTypes.func
+  movie_id: PropTypes.func,
+  history: PropTypes.object
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);
