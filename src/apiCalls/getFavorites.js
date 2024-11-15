@@ -6,7 +6,6 @@ export const getFavorites = async userId => {
   if (!token) {
     return null;
   }
-  console.log("token", token);
   const apiRoot = process.env.REACT_APP_AUTH_API_URL;
   const url = apiRoot + `/users/${userId}/favorites`;
   try {
@@ -18,7 +17,15 @@ export const getFavorites = async userId => {
       }
     });
     const favorites = await response.json();
-    return favorites.data.favorites;
+    const cleanFavorites = favorites.data.favorites.map(favorite => {
+      return {
+        id: favorite.id,
+        user_id: favorite.user_id,
+        movie_id: parseInt(favorite.movie_id, 10),
+        created_at: favorite.created_at
+      };
+    });
+    return cleanFavorites;
   } catch (error) {
     throw new Error("Error getting favorites");
   }
