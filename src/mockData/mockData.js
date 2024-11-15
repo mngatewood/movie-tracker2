@@ -48,14 +48,14 @@ export const mockFavoriteMovieData = {
 
 export const mockUser = {
   id: 1,
-  name: "Taylor",
+  username: "Taylor",
   password: "password",
   email: "tman2272@aol.com"
 };
 
 export const mockNotAUser = {
   id: 1,
-  name: "Taylor",
+  username: "Taylor",
   password: "password",
   email: "tman2272@aol.com"
 };
