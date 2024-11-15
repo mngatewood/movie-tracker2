@@ -25,13 +25,12 @@ export class Login extends Component {
   handleSubmit = async event => {
     event.preventDefault();
     try {
-      const user = await userLogin(this.state);
-      const favorites = await getFavorites(user.id);
-      this.props.validateUser(user);
+      const userData = await userLogin(this.state);
+      const favorites = await getFavorites(userData.data.user.id);
       this.props.addFavorites(favorites);
+      this.props.validateUser({ username: userData.data.user.username, id: userData.data.user.id });
       this.props.history.push('/');
     } catch (error) {
-      console.log("error", error);
       this.setState({
         email: "",
         password: "",
