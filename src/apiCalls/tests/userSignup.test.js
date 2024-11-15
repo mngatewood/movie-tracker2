@@ -6,8 +6,8 @@ describe("userSignup", () => {
 
   beforeEach(() => {
     mockAccountInfo = {
-      name: "me",
-      username: "me@gmail.com",
+      username: "me",
+      email: "me@gmail.com",
       password: "password"
     };
     mockId = 0;

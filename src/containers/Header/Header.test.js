@@ -7,7 +7,7 @@ describe('Header when logged in', () => {
   let mockUser;
 
   beforeEach(() => {
-    mockUser = { name: "me" };
+    mockUser = { username: "me" };
   });
 
   it('matches the snapshot', () => {

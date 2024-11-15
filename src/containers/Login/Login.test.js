@@ -40,13 +40,13 @@ describe('Login', () => {
     };
     const event1 = {
       target: {
-        name: 'email',
+        username: 'email',
         value: 'me@gmail.com'
       }
     };
     const event2 = {
       target: {
-        name: 'password',
+        username: 'password',
         value: 'password'
       }
     };

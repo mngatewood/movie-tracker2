@@ -1,9 +1,32 @@
 .login {
   padding: 30px;
   margin: 160px auto 0 auto;
-  width: 500px;
-  height: 250px;
-  background-color: #1481BA;
+  width: 80%;
+  max-width: 500px;
+  background-color: rgba(8, 51, 68, 0.6);
+  border-radius: 12px;
+}
+
+.film-reel-lg {
+  display: block;
+  margin: 32px -50%;
+  width: 150px;
+  z-index: 1;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.icon-container .reel-strip {
+  width: 75%;
+  height: 120px;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  background-color: rgb(0, 6, 40);
 }
 
 h4 {
@@ -12,62 +35,61 @@ h4 {
 }
 
 form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 30px auto;
-  width: 320px;
+  width: 80%;
+  max-width: 320px;
+  height: 250px;
 }
 
-input {
+input, form button {
   display: block;
-  padding-left: 5px;
-  margin: 25px auto;
-  width: 300px;
+  padding: 10px;
+  margin: 25px 32px;
+  width: 80%;
+  max-width: 256px;
   height: 35px;
   font-size: 20px;
+  border-radius: 6px;
+  box-sizing: border-box;
 }
 
 h2.errorMessage {
   margin-bottom: 0;
-  color: #034748;
+  color: rgb(203, 213, 225);
 }
 
 form button {
-  width: 307px;
-  height: 35px;
-  background-color: #11B5E4;
+  height: auto;
+  padding: 10px;
+  background-color: rgba(8, 145, 178, 0.6);
   color: #f5f5f5;
-  font-size: 20px;
+  cursor: pointer;
+}
+
+form button:hover:enabled {
+  background-color: rgba(8, 145, 178, 0.8);
 }
 
 button:disabled {
   background-color: #c0bfbf;
 }
 
-@media screen and (max-width: 720px){
+@media screen and (max-width: 768px){
 
   .login {
-    width: 90%;
-    height: 280px;
-    padding: 10px;
+    margin-top: 140px;
   }
 
 }
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 640px){
 
   .login {
-    padding: 10px;
-  }
-  
-  input, form button {
-    width: 200px;
-    margin: 0 auto;
+    margin-top: 120px;
   }
 
-  form {
-  margin: auto;
-  width: 90%;
 }
-
-
-}
-

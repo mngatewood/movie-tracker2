@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import './Signup.css';
 import { userSignup } from '../../apiCalls/userSignup';
-import { userLogin } from '../../apiCalls/userLogin';
 import { validateUser } from '../../actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import filmReel from '../../assets/film-reel.svg';
 
 export class Signup extends Component {
   constructor() {
     super();
 
     this.state = {
-      name: '',
+      username: '',
       email: '',
       password: '',
       errorMessage: ''
@@ -34,9 +34,7 @@ export class Signup extends Component {
         if (signUpFetch.error) {
           throw new Error("Error");
         } else {
-          const user = await userLogin(this.state);
-          this.props.validateUser(user);
-          this.props.history.push("/");
+          this.props.history.push("/login");
         }
       } catch (error) {
         errorMessage = "Email address has already been used.";
@@ -45,7 +43,7 @@ export class Signup extends Component {
       errorMessage = "Please enter a valid email address.";
     }
     this.setState({
-      name: "",
+      username: "",
       email: "",
       password: "",
       errorMessage: errorMessage
@@ -60,40 +58,47 @@ export class Signup extends Component {
 
   render() {
     const enableSubmit =
-      this.state.name &&
+      this.state.username &&
       this.state.email &&
       this.state.password;
-    return <div className="signup">
-      <h4>Please enter your name, email address, <br />
-      and password to create an account.</h4>
-      <form onSubmit={this.handleSubmit}>
-        <input 
-          type="text" 
-          name="name" 
-          value={this.state.name} 
-          placeholder="Name" 
-          onChange={this.handleChange} />
-        <input 
-          type="text" 
-          name="email" 
-          value={this.state.email} 
-          placeholder="Email address" 
-          onChange={this.handleChange} />
-        <input 
-          type="password" 
-          name="password" 
-          value={this.state.password} 
-          placeholder="Password" 
-          onChange={this.handleChange} />
-        <button 
-          type="submit" 
-          name="submit"
-          disabled={!enableSubmit}>
-            Submit
-        </button>
-      </form>
-      <h2 className="errorMessage">{this.state.errorMessage}</h2>
-    </div>;
+    return (
+      <div className="signup">
+        <div className="icon-container">
+          <div className="reel-strip" />
+          <img className="film-reel-lg" src={filmReel} alt="film reel icon" />
+          <div className="reel-strip" />
+        </div>
+        <h4>Please enter your name, email address, <br />
+        and password to create an account.</h4>
+        <form onSubmit={this.handleSubmit}>
+          <input 
+            type="text" 
+            name="username" 
+            value={this.state.name} 
+            placeholder="Name" 
+            onChange={this.handleChange} />
+          <input 
+            type="text" 
+            name="email" 
+            value={this.state.email} 
+            placeholder="Email address" 
+            onChange={this.handleChange} />
+          <input 
+            type="password" 
+            name="password" 
+            value={this.state.password} 
+            placeholder="Password" 
+            onChange={this.handleChange} />
+          <button 
+            type="submit" 
+            name="submit"
+            disabled={!enableSubmit}>
+              Submit
+          </button>
+        </form>
+        <h2 className="errorMessage">{this.state.errorMessage}</h2>
+      </div>
+    );
   }
 }
 

@@ -27,7 +27,7 @@ describe('Signup', () => {
 
   it('loads with an empty state', () => {
     expect(wrapper.state()).toEqual({
-      name: '',
+      username: '',
       email: '',
       password: '',
       errorMessage: ''
@@ -37,7 +37,7 @@ describe('Signup', () => {
   it('calls validateEmail on handleSubmit', () => {
     wrapper.instance().validateEmail = jest.fn();
     const mockState = {
-      name: 'me',
+      username: 'me',
       email: 'me@gmail.com',
       password: 'password',
       errorMessage: ''
@@ -56,7 +56,7 @@ describe('Signup', () => {
 
   it('calls userSignup on handleSubmit when email address is valid', () => {
     wrapper.setState({
-      name: 'me',
+      username: 'me',
       email: 'me@gmail.com',
       password: 'password',
       errorMessage: ''
@@ -68,7 +68,7 @@ describe('Signup', () => {
 
   it('calls userLogin on handleSubmit when email address is valid', () => {
     wrapper.setState({
-      name: "me",
+      username: "me",
       email: "me@gmail.com",
       password: "password",
       errorMessage: ""
@@ -85,7 +85,7 @@ describe('Signup', () => {
 
   it('updates state with an error when email is invalid', () => {
     wrapper.setState({
-      name: 'me',
+      username: 'me',
       email: 'megmailcom',
       password: 'password',
       errorMessage: ''
@@ -97,13 +97,13 @@ describe('Signup', () => {
 
   it('resets the state and inputs when not redirected', () => {
     wrapper.setState({
-      name: 'me',
+      username: 'me',
       email: 'megmailcom',
       password: 'password',
       errorMessage: ''
     });
     const expected = {
-      name: '',
+      username: '',
       email: '',
       password: '',
       errorMessage: 'Please enter a valid email address.'
@@ -114,26 +114,26 @@ describe('Signup', () => {
 
   it('updates the state as the user types', () => {
     const expected = {
-      name: 'me',
+      username: 'me',
       email: 'me@gmail.com',
       password: 'password',
       errorMessage: ''
     };
     const event1 = {
       target: {
-        name: 'name',
+        username: 'name',
         value: 'me'
       }
     };
     const event2 = {
       target: {
-        name: 'email',
+        username: 'email',
         value: 'me@gmail.com'
       }
     };
     const event3 = {
       target: {
-        name: 'password',
+        username: 'password',
         value: 'password'
       }
     };
@@ -145,28 +145,28 @@ describe('Signup', () => {
 
   it('disables submit button unless both fields contain data', () => {
     wrapper.setState({
-      name: '',
+      username: '',
       email: '',
       password: '',
       errorMessage: ''
     });
     expect(wrapper.find('button').prop('disabled')).toBe(true);
     wrapper.setState({
-      name: 'me',
+      username: 'me',
       email: '',
       password: '',
       errorMessage: ''
     });
     expect(wrapper.find('button').prop('disabled')).toBe(true);
     wrapper.setState({
-      name: 'me',
+      username: 'me',
       email: 'me@gmail.com',
       password: '',
       errorMessage: ''
     });
     expect(wrapper.find('button').prop('disabled')).toBe(true);
     wrapper.setState({
-      name: 'me',
+      username: 'me',
       email: 'me@gmail.com',
       password: 'password',
       errorMessage: ''
