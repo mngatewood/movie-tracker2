@@ -2,15 +2,19 @@ import React, { Component } from 'react';
 import { NavLink, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logOut, resetFavorites } from '../../actions';
+import { userLogout } from '../../apiCalls/userLogout';
 import './Header.css';
 import PropTypes from 'prop-types';
 import filmReel from '../../assets/film-reel.svg';
 
 export class Header extends Component {
 
-  handleClick = () => {
-    this.props.logOut();
-    this.props.resetFavorites();
+  handleClick = async () => {
+    const loggedOut = await userLogout();
+    if (loggedOut) {      
+      this.props.logOut();
+      this.props.resetFavorites();
+    }
   };
 
   render() {
