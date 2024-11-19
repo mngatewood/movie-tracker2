@@ -2,6 +2,7 @@ export const userLogin = async credentials => {
   const apiRoot = process.env.REACT_APP_AUTH_API_URL;
   const url = apiRoot + "/auth/login";
   console.log("url", url);
+  console.log("credentials", JSON.stringify(credentials));
   try {
     const response = await fetch(url, {
       method: "POST",
