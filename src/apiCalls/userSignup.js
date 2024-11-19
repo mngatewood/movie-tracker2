@@ -6,7 +6,7 @@ export const userSignup = async accountInfo => {
     const response = await fetch(url, {
       method: "POST",
       body: JSON.stringify(accountInfo),
-      headers: { "Content-Type": "application/json" }
+      headers: { "Content-Type": "text/plain" }
     });
     const userData = await response.json();
     console.log("userData", userData);
