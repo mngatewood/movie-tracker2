@@ -1,12 +1,13 @@
 export const userSignup = async accountInfo => {
   const apiRoot = process.env.REACT_APP_AUTH_API_URL;
   const url = apiRoot + "/users";
+  console.log("url", url);
   console.log("accountInfo", JSON.stringify(accountInfo));
   try {
     const response = await fetch(url, {
       method: "POST",
       body: JSON.stringify(accountInfo),
-      headers: { "Content-Type": "text/plain" }
+      headers: { "Content-Type": "application/json" }
     });
     const userData = await response.json();
     console.log("userData", userData);
