@@ -115,6 +115,8 @@ img.addFavoriteIcon {
   cursor: pointer;
   box-shadow: none;
   transition: transform 0.5s;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .favorite img.addFavoriteIcon {
