@@ -26,7 +26,7 @@
 .favorite img {
   width: 202px;
   height: 302px;
-  box-shadow: 0px 0px 20px 5px #EDBE5F;
+  box-shadow: 0px 0px 10px 2px #EDBE5F;
   transition: box-shadow 0.5s;
 }
 
@@ -118,7 +118,7 @@ img.addFavoriteIcon {
 }
 
 .favorite img.addFavoriteIcon {
-  filter: hue-rotate(270deg);
+  filter: hue-rotate(270deg) drop-shadow(5px 5px 5px);
   top: -335px;
 
 }
@@ -239,6 +239,10 @@ img.addFavoriteIcon:hover .addFaveError {
     right: -48px;
     height: 38px;
     width: 38px;
+  }
+
+  .favorite img.addFavoriteIcon {
+    top: -248px;
   }
 
   .favorite::first-child {
