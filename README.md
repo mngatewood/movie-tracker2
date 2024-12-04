@@ -72,7 +72,7 @@
 REACT_APP_AUTH_API_URL = "http://localhost:3001/api"</code></pre>
 	</li>
 	<li>
-		<p>Clone, install and run the <a href="https://github.com/mngatewood/user-auth"><code>user-api</code></a> project.</p>
+		<p>Clone, install and run the <a href="https://github.com/mngatewood/user-auth"><code>user-api</code></a> project. (Note that this is only required for account management, including saving favorites.)</p>
 	</li>
 	<li>
 		<p>Run the development server.</p>
