@@ -73,7 +73,7 @@
 
 <h3>License</h3>
 
-<p>Distributed under the MIT License. See <a href="https://github.com/mngatewood/movie-tracker2/blob/main/license.txt"><code>LICENSE.txt</code></a> for more information.</p>
+<p>Distributed under the MIT License. See <a href="https://github.com/mngatewood/movie-tracker2/blob/master/LICENSE.txt"><code>LICENSE.txt</code></a> for more information.</p>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
