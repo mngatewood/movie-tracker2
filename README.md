@@ -61,6 +61,20 @@
 		<pre><code>npm install</code></pre>
 	</li>
 	<li>
+		<p>Obtain an API key from <a href="https://developer.themoviedb.org/reference/intro/getting-started">The Movie DB</a>.</p>
+	</li>
+	<li>
+		<p>Create a new file in the root of the project named <code>.env</code>.</p>
+	</li>
+	<li>
+		<p>Add the following key/value pairs to the <code>.env</code> file:</p>
+		<pre><code>REACT_APP_MDB_API_KEY = "YOUR_API_KEY"
+REACT_APP_AUTH_API_URL = "http://localhost:3001/api"</code></pre>
+	</li>
+	<li>
+		<p>Clone, install and run the <a href="https://github.com/mngatewood/user-auth"><code>user-api</code></a> project.</p>
+	</li>
+	<li>
 		<p>Run the development server.</p>
 		<pre><code>npm run start</code></pre>
 	</li>
